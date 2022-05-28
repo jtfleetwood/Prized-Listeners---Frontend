@@ -23,14 +23,12 @@ const CreatePost = ({ALT_API_URL}) => {
             try {
                 
                 const response = await create_post(new post(user.sub, title, 0, link, artist, 0, false), ALT_API_URL);
-                const json_response = await response.json();
-
-                alert(json_response);
+                alert('Thanks for the submission! We look forward to seeing you on the leaderboards :)');
 
             }
     
             catch (error) {
-                alert(error.message);
+                alert('Oops, an error occurred!');
             }
 
         }
