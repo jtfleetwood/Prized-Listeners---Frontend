@@ -23,6 +23,7 @@ const CreatePost = ({ALT_API_URL}) => {
             try {
                 
                 const response = await create_post(new post(user.sub, title, 0, link, artist, 0, false), ALT_API_URL);
+                alert(response);
 
             }
     
