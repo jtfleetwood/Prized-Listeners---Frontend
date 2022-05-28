@@ -48,6 +48,12 @@ p code {
   background-size: cover;
 }
 
+.nav-title {
+  font-weight:bold;
+  color:white;
+  font-size: 300%;
+}
+
 .welcome-message {
   position: relative;
   text-align: center;
@@ -74,6 +80,65 @@ p code {
   color: white;
 }
 
+.posts-display-home {
+  margin-left: 10%;
+  margin-top: 2.5%;
+  font-size: 200%;
+  font-weight:bold;
+  color: white;
+}
 
+.table-container {
+  margin-left: 10%;
+  width: 75%;
+  margin-top: 1.5%;
+  color: white;
+}
 
+.posts-table {
+  color: white;
+}
 
+.create-post-button {
+  position: relative;
+  left: 45%;
+  font-weight:bold;
+}
+
+.create-post-form {
+  color: dark;
+}
+
+.form-container {
+  position: relative;
+  left: 40%;
+  top: 15%;
+  height: 30%;
+  width: 20%;
+  border-radius: 25px;
+  background: rgb(23, 26, 26);
+  padding: 2.5%;
+}
+
+.post-form-button {
+  position: relative;
+  left: 35%;
+}
+
+.post-form-title {
+  position: relative;
+  top: 10%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 300%;
+}
+
+.post-form-additional {
+  position: relative;
+  top: 20%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 200%;
+}
