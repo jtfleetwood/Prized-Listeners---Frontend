@@ -5,18 +5,26 @@ import HAccess from '../components/HAccess';
 import PostTable from '../components/PostTable';
 import {useRouter} from 'next/router';
 import {get_posts} from '../API Services/posts'
+import { check_new_user } from '../API Services/users';
+
+
 
 const Home = (props) => {
   const {user} = useUser();
   const router = useRouter();
 
+  const on_sign_in = async () => {
+    await check_new_user(user.sub, props.ALT_API_URL);
+  }
+
   if (!user) {
     return(
-    <HNAccess/>
-    );
+    <HNAccess/>);
   }
 
   else {
+    on_sign_in();
+
     return (
       <> 
         <div className = "page-holder">

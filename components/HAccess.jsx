@@ -1,6 +1,7 @@
 import {Button, Dropdown, Table, Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
-
+import { check_new_user } from '../API Services/users';
 const HAccess = () => {
+
     return (
         <>  
             <Navbar  collapseOnSelect expand="lg">
