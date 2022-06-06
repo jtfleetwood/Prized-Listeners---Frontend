@@ -142,3 +142,7 @@ p code {
   font-weight: bold;
   font-size: 200%;
 }
+
+span:hover {
+  cursor:pointer;
+}

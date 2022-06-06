@@ -6,7 +6,7 @@ import PostTable from '../components/PostTable';
 import {useRouter} from 'next/router';
 import {get_posts} from '../API Services/posts'
 
-const Home = ({table_posts}) => {
+const Home = (props) => {
   const {user, isLoading} = useUser();
   
   const router = useRouter();
@@ -23,7 +23,7 @@ const Home = ({table_posts}) => {
         <div className = "page-holder">
         <HAccess/>
         <div className = "posts-display-home">Weekly Entries</div>
-        <PostTable posts = {table_posts}/>
+        <PostTable posts = {props.table_posts} ALT_API_URL = {props.ALT_API_URL}/>
         <Button onClick = {() => router.push("/create_new_post")} className = "create-post-button" variant="dark">Create Entry</Button>
         </div>
       
@@ -37,6 +37,7 @@ export default Home;
 
 export async function getServerSideProps() {
   const table_posts = await get_posts();
+  const ALT_API_URL = process.env.API_URL;
 
-  return {props : {table_posts}};
+  return {props : {table_posts, ALT_API_URL}};
 }

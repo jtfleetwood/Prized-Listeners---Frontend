@@ -38,3 +38,41 @@ export const create_post = async (new_post, ALT_API_URL) => {
     }
     
 }
+
+export const add_upvote = async (id, ALT_API_URL) => {
+
+    try {
+        const response = await fetch(`${ALT_API_URL}posts/${id}/new_upvote`, {
+            method:'PATCH',
+            headers:{'content-type':'application/json'}
+        });
+    
+        const json_response = await response.json();
+    
+        return json_response;
+    }
+
+    catch (error) {
+        return {message: 'Error with DB transaction - reason: ' + error.message};
+    }
+    
+}
+
+export const add_downvote = async (id, ALT_API_URL) => {
+
+    try {
+        const response = await fetch(`${ALT_API_URL}posts/${id}/new_downvote`, {
+            method:'PATCH',
+            headers:{'content-type':'application/json'}
+        });
+    
+        const json_response = await response.json();
+    
+        return json_response;
+    }
+
+    catch (error) {
+        return {message: 'Error with DB transaction - reason: ' + error.message};
+    }
+    
+}
