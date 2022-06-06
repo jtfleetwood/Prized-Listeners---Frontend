@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { UserProvider, useUser } from '@auth0/nextjs-auth0';
 import '../styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.css'
-import { propTypes } from 'react-bootstrap/esm/Image';
 
 export default function App({ Component, pageProps }) {
 
