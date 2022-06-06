@@ -1,28 +1,57 @@
 import {Button, Table, Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 import Link from 'next/link';
 import { add_upvote, add_downvote } from '../API Services/posts';
+import { check_user_vote } from '../API Services/users';
 import {useRouter} from 'next/router';
-
-
-
-
+import { useUser } from '@auth0/nextjs-auth0';
 
 const PostTable = (props) => {
 
     props.posts.sort((a, b) => b.upvotes - a.upvotes);
     const router = useRouter();
+    const {user} = useUser();
+    
+    const on_upvote = async (post_id) => {
 
-    const on_upvote = async (id) => {
-        alert('Thanks for voting!');
-        await add_upvote(id, props.ALT_API_URL);
-        router.reload(window.location.index);
+        try {
+
+            if (await check_user_vote(user.sub, props.ALT_API_URL)) {
+                alert('You already voted this week!');
+                return;
+            }
+
+            alert('Thanks for voting!');
+            await add_upvote(post_id, user.sub, props.ALT_API_URL);
+            router.reload(window.location.index);
+        }
+
+        catch (error) {
+            console.log(error);
+        }
+
+        
     
     }
 
-    const on_downvote = async (id) => {
-        alert('Oof! Thanks for voting!');
-        await add_downvote(id, props.ALT_API_URL);
-        router.reload(window.location.index);
+    const on_downvote = async (post_id) => {
+
+        try {
+
+            if (await check_user_vote(user.sub, props.ALT_API_URL)) {
+                alert('You already voted this week!');
+                return;
+            }
+    
+            alert('Oof! Thanks for voting!');
+            await add_downvote(post_id, user.sub, props.ALT_API_URL);
+            router.reload(window.location.index);
+        }
+
+        catch(error) {
+            console.log(error);
+        }
+
+        
     }
 
     return (

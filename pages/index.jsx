@@ -8,7 +8,6 @@ import {get_posts} from '../API Services/posts'
 
 const Home = (props) => {
   const {user, isLoading} = useUser();
-  
   const router = useRouter();
 
   if (!user) {

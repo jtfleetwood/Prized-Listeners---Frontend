@@ -39,12 +39,13 @@ export const create_post = async (new_post, ALT_API_URL) => {
     
 }
 
-export const add_upvote = async (id, ALT_API_URL) => {
+export const add_upvote = async (post_id, u_id, ALT_API_URL) => {
 
     try {
-        const response = await fetch(`${ALT_API_URL}posts/${id}/new_upvote`, {
+        const response = await fetch(`${ALT_API_URL}posts/${post_id}/new_upvote`, {
             method:'PATCH',
-            headers:{'content-type':'application/json'}
+            headers:{'content-type':'application/json'},
+            body:JSON.stringify({user_id:u_id})
         });
     
         const json_response = await response.json();
@@ -58,12 +59,13 @@ export const add_upvote = async (id, ALT_API_URL) => {
     
 }
 
-export const add_downvote = async (id, ALT_API_URL) => {
+export const add_downvote = async (post_id, u_id, ALT_API_URL) => {
 
     try {
-        const response = await fetch(`${ALT_API_URL}posts/${id}/new_downvote`, {
+        const response = await fetch(`${ALT_API_URL}posts/${post_id}/new_downvote`, {
             method:'PATCH',
-            headers:{'content-type':'application/json'}
+            headers:{'content-type':'application/json'},
+            body:JSON.stringify({user_id:u_id})
         });
     
         const json_response = await response.json();
