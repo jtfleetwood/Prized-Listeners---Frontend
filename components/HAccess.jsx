@@ -1,4 +1,4 @@
-import {Button, Table, Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
+import {Button, Dropdown, Table, Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 
 const HAccess = () => {
     return (
@@ -12,9 +12,19 @@ const HAccess = () => {
                 
                 </Nav>
                 <Nav>
-                <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'150%'}}href="/api/auth/logout">Profile</Nav.Link>
+                <Dropdown >
+                    <Dropdown.Toggle style = {{color:'white', fontWeight:'bold', fontSize:'150%', backgroundColor:'transparent', borderColor:'white', border:'none'}}>
+                        Profile
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                        <Dropdown.Item href="#/action-1">My Profile</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">Settings</Dropdown.Item>
+                        <Dropdown.Item href="/api/auth/logout">Logout</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
                 <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'150%'}}eventKey={2} href="#memes">
-                    About us
+                    Leaderboards
                 </Nav.Link>
                 <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'150%'}}href="#deets">Contact</Nav.Link>
                 </Nav>
@@ -26,5 +36,7 @@ const HAccess = () => {
         </>
     )
 }
+
+
 
 export default HAccess;

@@ -7,7 +7,7 @@ import {useRouter} from 'next/router';
 import {get_posts} from '../API Services/posts'
 
 const Home = (props) => {
-  const {user, isLoading} = useUser();
+  const {user} = useUser();
   const router = useRouter();
 
   if (!user) {
