@@ -10,7 +10,6 @@ const PostTable = (props) => {
     props.posts.sort((a, b) => b.upvotes - a.upvotes);
     const router = useRouter();
     const {user} = useUser();
-    
     const on_upvote = async (post_id) => {
 
         try {
@@ -59,7 +58,7 @@ const PostTable = (props) => {
             <div className = "table-container">
                 <Table striped bordered hover variant="dark">
                 <thead>
-                <tr>
+                <tr className = "posts-column-head">
                     <th>Title</th>
                     <th>Artist</th>
                     <th>Youtube Link</th>
@@ -71,11 +70,11 @@ const PostTable = (props) => {
                     
                     {props.posts.map((post) => {
                     return (<tr>
-                        <td>{post.title}</td>
-                        <td>{post.primary_artist}</td>
-                        <td> <Link href = {post.yt_url}>{post.yt_url}</Link></td>
-                        <td> {post.upvotes}</td>
-                        <td><span onClick = {() => on_upvote(post.id)}>&#128293;</span> &nbsp; &nbsp; &nbsp; &nbsp; <span onClick = {() => on_downvote(post.id)}>&#128169;</span></td>
+                        <td className = "indv-posts">{post.title}</td>
+                        <td className = "indv-posts">{post.primary_artist}</td>
+                        <td className = "indv-posts"> <Link href = {post.yt_url}>{post.yt_url}</Link></td>
+                        <td className = "indv-posts"> {post.upvotes}</td>
+                        <td className = "indv-posts"><span onClick = {() => on_upvote(post.id)}>&#128293;</span> &nbsp; &nbsp; &nbsp; &nbsp; <span onClick = {() => on_downvote(post.id)}>&#128169;</span></td>
                     </tr>
                     )
                     })}

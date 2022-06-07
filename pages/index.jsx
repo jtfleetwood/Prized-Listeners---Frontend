@@ -26,12 +26,15 @@ const Home = (props) => {
     on_sign_in();
 
     return (
-      <> 
+      <>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </head> 
         <div className = "page-holder">
-        <HAccess/>
-        <div className = "posts-display-home">Weekly Entries</div>
-        <PostTable posts = {props.table_posts} ALT_API_URL = {props.ALT_API_URL}/>
-        <Button onClick = {() => router.push("/create_new_post")} className = "create-post-button" variant="dark">Create Entry</Button>
+          <HAccess/>
+          <div className = "posts-display-home">Weekly Entries</div>
+          <PostTable posts = {props.table_posts} ALT_API_URL = {props.ALT_API_URL}/>
+          <Button style = {{fontSize:'1vw', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}onClick = {() => router.push("/create_new_post")} className = "create-post-button" variant="dark">Create Entry</Button>
         </div>
       
   </>

@@ -44,26 +44,28 @@ const CreatePost = ({ALT_API_URL}) => {
     return (
         
         <>
+            <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            </head>
             <div className = "page-holder">
                 <HAccess/>
                 <div className = "post-form-title">Give us some &#128293;</div>
                 <div className = "form-container">
                 <Form>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
-                        <Form.Label style={{color:'white', fontWeight:'bold'}}>Title</Form.Label>
-                        <Form.Control value = {title} onChange = {(e) => setTitle(e.target.value)} type="text" placeholder="Enter title" />
+                        <Form.Label style={{fontSize:'1vw', color:'white', fontWeight:'bold'}}>Title</Form.Label>
+                        <Form.Control style = {{fontSize: '.75vw'}} value = {title} onChange = {(e) => setTitle(e.target.value)} type="text" placeholder="Enter title" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupPassword">
-                        <Form.Label style={{color:'white', fontWeight:'bold'}}>Artist</Form.Label>
-                        <Form.Control value = {artist} onChange = {(e) => setArtist(e.target.value)} placeholder="Enter artist" />
+                        <Form.Label style={{fontSize: '1vw', color:'white', fontWeight:'bold'}}>Artist</Form.Label>
+                        <Form.Control style = {{fontSize: '.75vw'}} value = {artist} onChange = {(e) => setArtist(e.target.value)} placeholder="Enter artist" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
-                        <Form.Label style={{color:'white', fontWeight:'bold'}}>Youtube</Form.Label>
-                        <Form.Control value = {link} onChange = {(e) => setLink(e.target.value)} type="text" placeholder="Enter link" />
+                        <Form.Label style={{fontSize : '1vw', color:'white', fontWeight:'bold'}}>Youtube</Form.Label>
+                        <Form.Control style = {{fontSize: '.75vw'}} value = {link} onChange = {(e) => setLink(e.target.value)} type="text" placeholder="Enter link" />
                     </Form.Group>
                 </Form>
-                <Button onClick = {onSubmission} style = {{fontWeight:'bold', color:'rgb(23, 26, 26)'}} variant = "info" className = "post-form-button" >Create Entry</Button>
-                
+                <Button onClick = {onSubmission} style = {{fontSize:'.75vw', fontWeight:'bold', color:'rgb(23, 26, 26)'}} variant = "info" className = "post-form-button" >Create Entry</Button>
                 </div>
             </div>
         </>
