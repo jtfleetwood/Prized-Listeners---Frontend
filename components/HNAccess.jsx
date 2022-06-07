@@ -7,7 +7,7 @@ const HNAccess = () => {
       <Navbar collapseOnSelect expand="lg">
       <Container>
       <Navbar.Brand style = {{color:'white', fontWeight:'bold', fontSize:'2vw'}} href="/">Prized Listeners</Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Toggle style = {{backgroundColor:'white'}} aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
           
