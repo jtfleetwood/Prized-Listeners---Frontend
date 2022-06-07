@@ -6,7 +6,7 @@ const HAccess = () => {
         <>  
             <Navbar collapseOnSelect expand="lg">
             <Container>
-            <Navbar.Brand style={{color:'white', fontWeight:'bold', fontSize:'2vw'}} href="/">Prized Listeners</Navbar.Brand>
+            <Navbar.Brand style={{color:'white', fontWeight:'bold', fontSize:'3vw'}} href="/">Prized Listeners</Navbar.Brand>
             <Navbar.Toggle style = {{backgroundColor:'white'}}aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
@@ -14,7 +14,7 @@ const HAccess = () => {
                 </Nav>
                 <Nav>
                 <Dropdown >
-                    <Dropdown.Toggle style = {{color:'white', fontWeight:'bold', fontSize:'1.5vw', backgroundColor:'transparent', borderColor:'white', border:'none'}}><span style = {{marginLeft:'0%'}}>Profile</span></Dropdown.Toggle>
+                    <Dropdown.Toggle style = {{color:'white', fontWeight:'bold', fontSize:'2vw', backgroundColor:'transparent', borderColor:'white', border:'none'}}><span style = {{marginLeft:'0%'}}>Profile</span></Dropdown.Toggle>
 
                     <Dropdown.Menu>
                         <Dropdown.Item href="#/action-1">My Profile</Dropdown.Item>
@@ -22,10 +22,10 @@ const HAccess = () => {
                         <Dropdown.Item href="/api/auth/logout">Logout</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
-                <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'1.5vw'}}eventKey={2} href="#memes">
+                <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'2vw'}}eventKey={2} href="#memes">
                     Leaderboards
                 </Nav.Link>
-                <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'1.5vw'}}href="#deets">Contact</Nav.Link>
+                <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'2vw'}}href="#deets">Contact</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Container>

@@ -74,7 +74,7 @@ const PostTable = (props) => {
                         <td className = "indv-posts">{post.primary_artist}</td>
                         <td className = "indv-posts"> <Link href = {post.yt_url}>{post.yt_url}</Link></td>
                         <td className = "indv-posts"> {post.upvotes}</td>
-                        <td className = "indv-posts"><span onClick = {() => on_upvote(post.id)}>&#128293;</span> &nbsp; &nbsp; &nbsp; &nbsp; <span onClick = {() => on_downvote(post.id)}>&#128169;</span></td>
+                        <td style = {{fontSize:'1.25vw'}}className = "indv-posts"><span onClick = {() => on_upvote(post.id)}>&#128077;</span> &nbsp; &nbsp; &nbsp; &nbsp; <span onClick = {() => on_downvote(post.id)}>&#128078;</span></td>
                     </tr>
                     )
                     })}

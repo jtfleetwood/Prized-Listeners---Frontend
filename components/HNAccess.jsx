@@ -6,18 +6,18 @@ const HNAccess = () => {
       <div className = "page-holder">
       <Navbar collapseOnSelect expand="lg">
       <Container>
-      <Navbar.Brand style = {{color:'white', fontWeight:'bold', fontSize:'2vw'}} href="/">Prized Listeners</Navbar.Brand>
+      <Navbar.Brand style = {{color:'white', fontWeight:'bold', fontSize:'3vw'}} href="/">Prized Listeners</Navbar.Brand>
       <Navbar.Toggle style = {{backgroundColor:'white'}} aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
           
           </Nav>
         <Nav>
-          <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'1.5vw'}}href="/api/auth/login">&nbsp;Sign in&nbsp;</Nav.Link>
-          <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'1.5vw'}}eventKey={2} href="#memes">
+          <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'2vw'}}href="/api/auth/login">&nbsp;Sign in&nbsp;</Nav.Link>
+          <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'2vw'}}eventKey={2} href="#memes">
             About us
           </Nav.Link>
-          <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'1.5vw'}}href="#deets">&nbsp;Contact</Nav.Link>
+          <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'2vw'}}href="#deets">&nbsp;Contact</Nav.Link>
         </Nav>
       </Navbar.Collapse>
       </Container>
