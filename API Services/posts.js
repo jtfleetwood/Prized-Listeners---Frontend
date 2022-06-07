@@ -78,3 +78,14 @@ export const add_downvote = async (post_id, u_id, ALT_API_URL) => {
     }
     
 }
+
+export const find_post_count_by_user = async (user_id, week, ALT_API_URL) => {
+    const response = await fetch(`${ALT_API_URL}posts/${user_id}/${week}`, {
+        method:'GET',
+        headers:{'content-type':'application/json'}
+    });
+
+    const json_response = await response.json();
+
+    return json_response.count;
+}

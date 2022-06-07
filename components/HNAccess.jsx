@@ -13,7 +13,7 @@ const HNAccess = () => {
           
           </Nav>
         <Nav>
-          <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'1.5vw'}}href="/api/auth/login">&nbsp;Sign in</Nav.Link>
+          <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'1.5vw'}}href="/api/auth/login">&nbsp;Sign in&nbsp;</Nav.Link>
           <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'1.5vw'}}eventKey={2} href="#memes">
             About us
           </Nav.Link>

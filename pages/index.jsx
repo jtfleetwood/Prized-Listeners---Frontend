@@ -6,6 +6,8 @@ import PostTable from '../components/PostTable';
 import {useRouter} from 'next/router';
 import {get_posts} from '../API Services/posts'
 import { check_new_user } from '../API Services/users';
+import {find_post_count_by_user} from '../API Services/posts';
+
 
 
 
@@ -15,6 +17,27 @@ const Home = (props) => {
 
   const on_sign_in = async () => {
     await check_new_user(user.sub, props.ALT_API_URL);
+  }
+
+  const onClick = async (e) => {
+    e.preventDefault();
+    try {
+      const post_count = await find_post_count_by_user(user.sub, 0, props.ALT_API_URL);
+  
+  
+      if (post_count) {
+        alert('You already posted this week!');
+        return;
+      }
+  
+      router.push("/create_new_post");
+      
+    }
+  
+    catch(error) {
+      console.log(error);
+    }
+  
   }
 
   if (!user) {
@@ -34,7 +57,7 @@ const Home = (props) => {
           <HAccess/>
           <div className = "posts-display-home">Weekly Entries</div>
           <PostTable posts = {props.table_posts} ALT_API_URL = {props.ALT_API_URL}/>
-          <Button style = {{fontSize:'1vw', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}onClick = {() => router.push("/create_new_post")} className = "create-post-button" variant="dark">Create Entry</Button>
+          <Button style = {{fontSize:'1vw', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}onClick = {onClick} className = "create-post-button" variant="dark">Create Entry</Button>
         </div>
       
   </>
