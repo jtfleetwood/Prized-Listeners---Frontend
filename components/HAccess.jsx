@@ -4,19 +4,17 @@ const HAccess = () => {
 
     return (
         <>  
-            <Navbar  collapseOnSelect expand="lg">
+            <Navbar collapseOnSelect expand="lg">
             <Container>
             <Navbar.Brand style={{color:'white', fontWeight:'bold', fontSize:'2vw'}} href="/">Prized Listeners</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Toggle style = {{backgroundColor:'white'}}aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
                 
                 </Nav>
                 <Nav>
                 <Dropdown >
-                    <Dropdown.Toggle style = {{color:'white', fontWeight:'bold', fontSize:'1.5vw', backgroundColor:'transparent', borderColor:'white', border:'none'}}>
-                        Profile
-                    </Dropdown.Toggle>
+                    <Dropdown.Toggle style = {{color:'white', fontWeight:'bold', fontSize:'1.5vw', backgroundColor:'transparent', borderColor:'white', border:'none'}}><span style = {{marginLeft:'0%'}}>Profile</span></Dropdown.Toggle>
 
                     <Dropdown.Menu>
                         <Dropdown.Item href="#/action-1">My Profile</Dropdown.Item>
