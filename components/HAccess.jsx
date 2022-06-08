@@ -1,7 +1,7 @@
 import {Button, Dropdown, Table, Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 
 const HAccess = (props) => {
-    var profile_link = "./";
+    var profile_link = `./${props.user_id}`;
 
     if (props.current_page !== "profile") {
         profile_link = `/profiles/${props.user_id}`
