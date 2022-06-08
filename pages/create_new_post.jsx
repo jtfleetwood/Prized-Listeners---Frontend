@@ -48,7 +48,7 @@ const CreatePost = ({ALT_API_URL}) => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             </head>
             <div className = "page-holder">
-                <HAccess/>
+                <HAccess user_id = {user.sub} />
                 <div className = "post-form-title">Give us some &#128293;</div>
                 <div className = "form-container">
                 <Form>

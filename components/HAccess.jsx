@@ -1,6 +1,6 @@
 import {Button, Dropdown, Table, Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
-import { check_new_user } from '../API Services/users';
-const HAccess = () => {
+
+const HAccess = (props) => {
 
     return (
         <>  
@@ -17,7 +17,7 @@ const HAccess = () => {
                     <Dropdown.Toggle style = {{color:'white', fontWeight:'bold', fontSize:'2vw', backgroundColor:'transparent', borderColor:'white', border:'none'}}><span style = {{marginLeft:'0%'}}>Profile</span></Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">My Profile</Dropdown.Item>
+                        <Dropdown.Item href={`profiles/${props.user_id}`}>My Profile</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">Settings</Dropdown.Item>
                         <Dropdown.Item href="/api/auth/logout">Logout</Dropdown.Item>
                     </Dropdown.Menu>
