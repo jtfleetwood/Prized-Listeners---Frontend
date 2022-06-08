@@ -13,7 +13,7 @@ const Profile = (props) => {
         return (
             <>
                 <div className = "page-holder">
-                    <HAccess user_id = {user.sub}/>
+                    <HAccess current_page = "profile" user_id = {user.sub}/>
                     <div className = "profile-info-container">
                     <img className = "profile-picture" src={user.picture}></img>
                         <div className = "profile-info-heading">Email:
