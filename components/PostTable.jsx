@@ -2,6 +2,7 @@ import {Button, Table, Navbar, Container, Nav, NavDropdown} from 'react-bootstra
 import Link from 'next/link';
 import { add_upvote, add_downvote } from '../API Services/posts';
 import { check_user_vote } from '../API Services/users';
+import { check_user_self_vote } from '../API Services/posts';
 import {useRouter} from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 
@@ -14,7 +15,12 @@ const PostTable = (props) => {
 
         try {
 
-            if (await check_user_vote(user.sub, props.ALT_API_URL)) {
+            if (await check_user_self_vote(user.sub, post_id, props.ALT_API_URL)) {
+                alert('You cannot upvote your own post!');
+                return;
+            }
+
+            else if (await check_user_vote(user.sub, props.ALT_API_URL)) {
                 alert('You already voted this week!');
                 return;
             }
@@ -36,7 +42,13 @@ const PostTable = (props) => {
 
         try {
 
-            if (await check_user_vote(user.sub, props.ALT_API_URL)) {
+
+            if (await check_user_self_vote(user.sub, post_id, props.ALT_API_URL)) {
+                alert('You cannot downvote your own post!');
+                return;
+            }
+
+            else if (await check_user_vote(user.sub, props.ALT_API_URL)) {
                 alert('You already voted this week!');
                 return;
             }

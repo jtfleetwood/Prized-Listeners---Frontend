@@ -14,5 +14,6 @@ export const check_new_user = async (user_id, ALT_API_URL) => {
         method:'PATCH',
         headers:{'content-type':'application/json'}
     });
+    
 
 }
