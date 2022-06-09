@@ -25,9 +25,6 @@ const on_password_submit = async (email, auth_url, auth_client_id) => {
     
 }
 
-
-
-
 const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
     const {user, isLoading} = useUser();
     const [display_name, set_display_name] = useState('');
