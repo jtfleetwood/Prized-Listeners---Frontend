@@ -133,7 +133,7 @@ p code {
 
   .reset-password-button {
     position: relative !important;
-    left: 15% !important;
+    left: 14% !important;
     top:10% !important;
     font-weight: bold !important;
     background: rgb(23, 26, 26);
@@ -299,7 +299,6 @@ p code {
   font-weight: bold;
   margin-left: 5%;
   margin-top: 5%;
-  margin-bottom:5%;
 }
 
 .reset-password {

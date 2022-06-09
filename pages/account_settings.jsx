@@ -72,7 +72,7 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
                     <HAccess user_id={user.sub}/>
                     <div className = "reset-name">Change Display Name: <input value = {display_name} onChange = {(e) => set_display_name(e.target.value)}className = "display-change-input"></input></div>
                     <div className = "reset-name">Verify Change: <input value = {v_display_name} onChange = {(e) => set_v_display_name(e.target.value)} className = "display-change-input"></input></div>
-                    <button onClick className = "submit-changes-button" variant="dark">Submit Changes</button>
+                    <button onClick = {() => on_name_reset(ALT_API_URL, user.sub, display_name, v_display_name)}className = "submit-changes-button" variant="dark">Submit Changes</button>
                     <div className = "reset-password">Change Password: <button onClick = {() => on_password_submit(user.name, auth_url, auth_client_id)} className = "reset-password-button" variant="dark">Reset Password</button></div>
                 </div>
             </>
