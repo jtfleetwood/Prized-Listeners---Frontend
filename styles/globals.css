@@ -120,7 +120,7 @@ p code {
   .submit-changes-button {
     position: relative !important;
     left: 37% !important;
-    top:5% !important;
+    top:10% !important;
     font-weight: bold !important;
     background: rgb(23, 26, 26);
     border-color:white;
@@ -133,7 +133,7 @@ p code {
 
   .reset-password-button {
     position: relative !important;
-    left: 13.5% !important;
+    left: 15% !important;
     top:10% !important;
     font-weight: bold !important;
     background: rgb(23, 26, 26);
