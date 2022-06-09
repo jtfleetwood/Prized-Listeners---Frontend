@@ -32,7 +32,7 @@ const Profile = (props) => {
                          <span className = "profile-info-content">{props.win_count}</span>
                         </div>
                     </div>
-                    <Button onClick = {(e) => router.push('../account_settings')}style = {{position:'relative', marginLeft:'40%', marginTop:'45%', fontSize:'1.5vw', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}} variant="dark">Edit Information</Button>
+                    <button className = "create-post-button" onClick = {(e) => router.push('../account_settings')} variant="dark">Edit Information</button>
                 </div>
             </>
         )

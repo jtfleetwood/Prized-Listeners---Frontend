@@ -97,9 +97,17 @@ p code {
 @media (max-width:992px) {
   .create-post-button {
     position: relative !important;
-    left: 40% !important;
-    top:20% !important;
+    left: 42% !important;
+    top:16% !important;
     font-weight: bold !important;
+    background: rgb(23, 26, 26);
+    border-color:white;
+    border-radius:1vw;
+    color:white;
+    font-size: 1.5vw;
+    border-width:medium;
+    padding:.5vw;
+
   }
   
   .create-post-button-1 {
@@ -124,9 +132,17 @@ p code {
 @media (min-width:993px) {
   .create-post-button {
     position: relative !important;
-    left: 42.5% !important;
+    left: 44% !important;
     top:20% !important;
-    font-weight:bold !important;
+    font-weight: bold !important;
+    background: rgb(23, 26, 26);
+    border-color:white;
+    border-radius:1vw;
+    border-width:medium;
+    color:white;
+    font-size: 1.5vw;
+    padding:.5vw;
+
   }
 
   .submit-changes-button {
