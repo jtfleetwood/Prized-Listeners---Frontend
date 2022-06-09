@@ -49,3 +49,41 @@ export const get_user_win_count = async (user_id, ALT_API_URL) => {
     
 
 }
+
+export const reset_user_password = async (email, auth_url, client_id) => {
+
+    try {
+        const response = await fetch(`${auth_url}/dbconnections/change_password`, {
+            method:'POST',
+            headers: {'content-type':'application/json'},
+            body: JSON.stringify({
+                client_id,
+                email,
+                connection:"Username-Password-Authentication"
+            })
+        });
+    
+        return response;
+    }
+
+    catch (error) {
+        console.log(error);
+    }
+    
+}
+
+export const change_user_display_name = async (ALT_API_URL, user_id, new_name) => {
+    try {
+        const response = await fetch(`${ALT_API_URL}users/${user_id}/change_user_display_name`, {
+            method:'PATCH',
+            headers:{'content-type':'application/json'},
+            body:JSON.stringify({name:new_name})
+        });
+
+        return response;
+    }
+
+    catch (error) {
+        console.log(error);
+    }
+}

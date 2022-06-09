@@ -2,10 +2,13 @@ import {Button, Dropdown, Table, Navbar, Container, Nav, NavDropdown} from 'reac
 
 const HAccess = (props) => {
     var profile_link = `./${props.user_id}`;
+    var settings_link = `../account_settings`
 
     if (props.current_page !== "profile") {
         profile_link = `/profiles/${props.user_id}`
+        settings_link = 'account_settings'
     }
+
     return (
         <>  
             <Navbar collapseOnSelect expand="lg">
@@ -22,7 +25,7 @@ const HAccess = (props) => {
 
                     <Dropdown.Menu>
                         <Dropdown.Item href={profile_link}>My Profile</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Settings</Dropdown.Item>
+                        <Dropdown.Item href={settings_link}>Settings</Dropdown.Item>
                         <Dropdown.Item href="/api/auth/logout">Logout</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>

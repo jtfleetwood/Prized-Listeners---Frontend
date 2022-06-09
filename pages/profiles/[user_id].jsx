@@ -3,10 +3,13 @@ import { useUser } from '@auth0/nextjs-auth0';
 import {get_user_win_count} from '../../API Services/users';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import {Button} from 'react-bootstrap';
 
 const Profile = (props) => {
+    
 
     const {user, isLoading} = useUser();
+    const router = useRouter();
 
     if (user && !isLoading) {
        
@@ -17,7 +20,7 @@ const Profile = (props) => {
                     <div className = "profile-info-container">
                     <img className = "profile-picture" src={user.picture}></img>
                         <div className = "profile-info-heading">Email:
-                         <span className = "profile-info-content">{user.email || 'Not verified! (Check email)'}</span>
+                         <span className = "profile-info-content">{user.name}</span>
                         </div>
                         <div className = "profile-info-heading">Display Name:
                          <span className = "profile-info-content">{user.nickname}</span>
@@ -26,6 +29,7 @@ const Profile = (props) => {
                          <span className = "profile-info-content">{props.win_count}</span>
                         </div>
                     </div>
+                    <Button onClick = {(e) => router.push('../account_settings')}style = {{fontSize:'1.5vw', left: '42%', top:'20%', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}className = "create-post-button" variant="dark">Edit Information</Button>
                 </div>
             </>
         )

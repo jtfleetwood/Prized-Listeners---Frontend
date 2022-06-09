@@ -189,3 +189,24 @@ p code {
   left: 45%;
 }
 
+.reset-name {
+  font-size:2vw;
+  color:white;
+  font-weight: bold;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.reset-password {
+  font-size:2vw;
+  color:white;
+  font-weight: bold;
+  margin-left: 5%;
+  margin-top: 15%;
+}
+
+.display-change-input {
+  position:absolute;
+  left: 30%;
+}
+
