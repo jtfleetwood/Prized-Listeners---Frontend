@@ -45,7 +45,7 @@ const CreatePost = ({ALT_API_URL}) => {
         
         <>
             <head>
-                    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
             </head>
             <div className = "page-holder">
                 <HAccess user_id = {user.sub} />
