@@ -68,6 +68,9 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
     if (user && !isLoading) {
         return (
             <>
+                <head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                </head>
                 <div className = "page-holder">
                     <HAccess user_id={user.sub}/>
                     <div className = "reset-name">Change Display Name: <input value = {display_name} onChange = {(e) => set_display_name(e.target.value)}className = "display-change-input"></input></div>
