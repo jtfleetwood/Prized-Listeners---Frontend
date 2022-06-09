@@ -72,8 +72,8 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
                     <HAccess user_id={user.sub}/>
                     <div className = "reset-name">Change Display Name: <input value = {display_name} onChange = {(e) => set_display_name(e.target.value)}className = "display-change-input"></input></div>
                     <div className = "reset-name">Verify Change: <input value = {v_display_name} onChange = {(e) => set_v_display_name(e.target.value)} className = "display-change-input"></input></div>
-                    <Button onClick = {() => on_name_reset(ALT_API_URL, user.sub, display_name, v_display_name)}style = {{fontSize:'1.5vw', left: '35%', top:'2.5%', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}className = "create-post-button" variant="dark">Submit Changes</Button>
-                    <div className = "reset-password">Change Password: <Button onClick = {() => on_password_submit(user.name, auth_url, auth_client_id)} style = {{fontSize:'1.5vw', left: '13%', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}className = "create-post-button" variant="dark">Reset Password</Button></div>
+                    <Button onClick = {() => on_name_reset(ALT_API_URL, user.sub, display_name, v_display_name)}style = {{fontSize:'1.5vw', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}className = "submit-changes-button" variant="dark">Submit Changes</Button>
+                    <div className = "reset-password">Change Password: <Button onClick = {() => on_password_submit(user.name, auth_url, auth_client_id)} style = {{fontSize:'1.5vw', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}className = "reset-password-button" variant="dark">Reset Password</Button></div>
                 </div>
             </>
         )

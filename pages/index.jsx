@@ -54,7 +54,7 @@ const Home = (props) => {
           <HAccess user_id = {user.sub}/>
           <div className = "posts-display-home">Weekly Entries</div>
           <PostTable posts = {props.table_posts} ALT_API_URL = {props.ALT_API_URL}/>
-          <Button style = {{fontSize:'1.5vw', left: '40.5%', marginTop: '2%', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}onClick = {onClick} className = "create-post-button" variant="dark">Create Entry</Button>
+          <Button style = {{fontSize:'1.5vw', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}onClick = {onClick} className = "create-post-button-1" variant="dark">Create Entry</Button>
         </div>
       
   </>

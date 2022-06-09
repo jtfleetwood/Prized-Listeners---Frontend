@@ -94,11 +94,61 @@ p code {
   color: white;
 }
 
-.create-post-button {
-  position: relative;
-  left: 45%;
-  font-weight:bold;
+@media (max-width:768px) {
+  .create-post-button {
+    position: relative;
+    left: 40%;
+    top:20%;
+    font-weight:bold;
+  }
+  
+  .create-post-button-1 {
+    position: relative;
+    left: 40%;
+    top:1%;
+    font-weight:bold;
+  }
+
+  .submit-changes-button {
+    position: relative;
+    left: 33%;
+    top: 2%;
+  }
+
+  .reset-password-button {
+    position: relative;
+    left: 11%;
+  }
 }
+
+@media (min-width:769px) {
+  .create-post-button {
+    position: relative;
+    left: 42.5%;
+    top:20%;
+    font-weight:bold;
+  }
+
+  .submit-changes-button {
+    position: relative;
+    left: 35%;
+    top: 5%;
+  }
+
+  .reset-password-button {
+    position: relative;
+    left: 13%;
+  }
+
+  .create-post-button-1 {
+    position: relative;
+    left: 40%;
+    top:4%;
+    font-weight:bold;
+  }
+}
+
+
 
 .create-post-form {
   color: dark;

@@ -29,7 +29,7 @@ const Profile = (props) => {
                          <span className = "profile-info-content">{props.win_count}</span>
                         </div>
                     </div>
-                    <Button onClick = {(e) => router.push('../account_settings')}style = {{fontSize:'1.5vw', left: '42%', top:'20%', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}className = "create-post-button" variant="dark">Edit Information</Button>
+                    <Button onClick = {(e) => router.push('../account_settings')}style = {{fontSize:'1.5vw', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}className = "create-post-button" variant="dark">Edit Information</Button>
                 </div>
             </>
         )
