@@ -94,11 +94,11 @@ p code {
   color: white;
 }
 
-@media (max-width:992px) {
+@media (max-width:993px) {
   .create-post-button {
     position: relative !important;
     left: 42% !important;
-    top:16% !important;
+    margin-top: 25%;
     font-weight: bold !important;
     background: rgb(23, 26, 26);
     border-color:white;
@@ -146,7 +146,7 @@ p code {
   }
 }
 
-@media (min-width:993px) {
+@media (min-width:994px) {
   .create-post-button {
     position: relative !important;
     left: 44% !important;
