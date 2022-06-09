@@ -52,7 +52,7 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
             set_v_display_name('');
     
             if (response.ok) {
-                alert(`Display name successfully changed to: ${new_name1}! **This change will not be present on the front-end at the moment due to Auth0 internal errors.** Waiting to hear back from dev community.`);
+                alert(`Display name successfully changed to: ${new_name1}! Note: this update may take up to a minute or so.`);
                 return;
             }
     
