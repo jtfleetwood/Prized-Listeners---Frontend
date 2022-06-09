@@ -119,13 +119,30 @@ p code {
 
   .submit-changes-button {
     position: relative !important;
-    left: 33% !important;
-    top: 2% !important;
+    left: 35% !important;
+    top:2% !important;
+    font-weight: bold !important;
+    background: rgb(23, 26, 26);
+    border-color:white;
+    border-radius:1vw;
+    border-width:medium;
+    color:white;
+    font-size: 1.5vw;
+    padding:.5vw;
   }
 
   .reset-password-button {
     position: relative !important;
-    left: 11% !important;
+    left: 13.5% !important;
+    top:10% !important;
+    font-weight: bold !important;
+    background: rgb(23, 26, 26);
+    border-color:white;
+    border-radius:1vw;
+    border-width:medium;
+    color:white;
+    font-size: 1.5vw;
+    padding:.5vw;
   }
 }
 
@@ -148,12 +165,29 @@ p code {
   .submit-changes-button {
     position: relative !important;
     left: 35% !important;
-    top: 5% !important; 
+    top:10% !important;
+    font-weight: bold !important;
+    background: rgb(23, 26, 26);
+    border-color:white;
+    border-radius:1vw;
+    border-width:medium;
+    color:white;
+    font-size: 1.5vw;
+    padding:.5vw;
   }
 
   .reset-password-button {
     position: relative !important;
-    left: 13%;
+    left: 13.5% !important;
+    top:10% !important;
+    font-weight: bold !important;
+    background: rgb(23, 26, 26);
+    border-color:white;
+    border-radius:1vw;
+    border-width:medium;
+    color:white;
+    font-size: 1.5vw;
+    padding:.5vw;
   }
 
   .create-post-button-1 {
