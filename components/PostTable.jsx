@@ -11,6 +11,7 @@ const PostTable = (props) => {
     props.posts.sort((a, b) => b.upvotes - a.upvotes);
     const router = useRouter();
     const {user} = useUser();
+    
     const on_upvote = async (post_id) => {
 
         try {
