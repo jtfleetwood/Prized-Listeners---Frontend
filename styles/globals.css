@@ -41,7 +41,7 @@ p code {
 .page-holder {
   width: 100%;
   height: 100%;
-  background-image: url("https://images.hdqwalls.com/download/music-melody-abstract-4k-jr-1920x1080.jpg");
+  background-image: url("../public/music.jpg");
   position:absolute;
   background-repeat: no-repeat;
   background-position: center;
