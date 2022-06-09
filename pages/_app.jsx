@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <meta name="application-name" content = "Prized Listeners"/>
         <meta name="description" content = "We embrace your love for music, and friendly competition!"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <title>Prized Listeners</title>
       </Head>
       <UserProvider>

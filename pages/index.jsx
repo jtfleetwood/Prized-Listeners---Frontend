@@ -48,8 +48,8 @@ const Home = (props) => {
     return (
       <>
         <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        </head> 
+          <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        </head>
         <div className = "page-holder">
           <HAccess user_id = {user.sub}/>
           <div className = "posts-display-home">Weekly Entries</div>
