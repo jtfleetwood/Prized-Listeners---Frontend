@@ -7,6 +7,7 @@ import {useRouter} from 'next/router';
 import {get_posts} from '../API Services/posts'
 import { check_new_user } from '../API Services/users';
 import {find_post_count_by_user} from '../API Services/posts';
+import Post from '../components/post';
 
 const Home = (props) => {
   const {user} = useUser();
@@ -51,13 +52,12 @@ const Home = (props) => {
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
         </head>
         <div className = "page-holder">
-          <HAccess user_id = {user.sub}/>
-          <div className = "posts-display-home">Weekly Entries</div>
-          <PostTable posts = {props.table_posts} ALT_API_URL = {props.ALT_API_URL}/>
-          <Button style = {{fontSize:'1.5vw', fontWeight:'bold', borderColor:'white', borderWidth:'medium'}}onClick = {onClick} className = "create-post-button-1" variant="dark">Create Entry</Button>
+          <HAccess/>
+          <div className = "posts-display-home"><em>Weekly Entries</em></div>
+          <PostTable ALT_API_URL = {props.ALT_API_URL} posts = {props.table_posts}></PostTable>
         </div>
       
-  </>
+    </>
     )
   }
 

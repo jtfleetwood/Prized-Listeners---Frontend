@@ -1,6 +1,7 @@
 import {Button, Dropdown, Table, Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 
 const HAccess = (props) => {
+    
     var profile_link = `./${props.user_id}`;
     var settings_link = `../account_settings`
 
@@ -11,34 +12,30 @@ const HAccess = (props) => {
 
     return (
         <>  
-            <Navbar collapseOnSelect expand="lg">
-            <Container>
-            <Navbar.Brand style={{color:'white', fontWeight:'bold', fontSize:'3vw'}} href="/">Prized Listeners</Navbar.Brand>
-            <Navbar.Toggle style = {{backgroundColor:'white'}}aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="me-auto">
-                
-                </Nav>
-                <Nav>
-                <Dropdown >
-                    <Dropdown.Toggle style = {{color:'white', fontWeight:'bold', fontSize:'2vw', backgroundColor:'transparent', borderColor:'white', border:'none'}}><span style = {{marginLeft:'0%'}}>Profile</span></Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                        <Dropdown.Item href={profile_link}>My Profile</Dropdown.Item>
-                        <Dropdown.Item href={settings_link}>Settings</Dropdown.Item>
-                        <Dropdown.Item href="/api/auth/logout">Logout</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-                <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'2vw'}}eventKey={2} href="#memes">
-                    Leaderboards
-                </Nav.Link>
-                <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'2vw'}}href="#deets">Contact</Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
-            </Container>
-            </Navbar>
-            
-        
+            <head>
+            <script src="script.js" defer></script>
+            <title>Responsive Navbar</title>
+            </head>
+            <body>
+            <nav class="navbar">
+                <div class="brand-title"><em>Prized Listeners</em></div>
+                <a onClick = {() => {
+                    const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+                    navbarLinks.classList.toggle('active')
+                }}href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                </a>
+                <div class="navbar-links">
+                <ul>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Leaderboards</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                </div>
+            </nav>
+            </body>
         </>
     )
 }
