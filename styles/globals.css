@@ -200,11 +200,20 @@ p code {
   .form-container {
     position: relative;
     margin:auto;
-    margin-top:30%;
+    margin-top:15%;
     width: 50%;
     border-radius: 1vw;
     background: rgb(23, 26, 26);
     padding: 2%;
+  }
+
+  .post-form-title {
+    position: relative;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-size: 5vw;
+    top:5%;
   }
 
 }
@@ -220,6 +229,15 @@ p code {
     padding: 2%;
   }
 
+  .post-form-title {
+    position: relative;
+    top: 10%;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-size: 3.5vw;
+  }
+
 }
 
 
@@ -232,14 +250,6 @@ p code {
   
 }
 
-.post-form-title {
-  position: relative;
-  top: 10%;
-  text-align: center;
-  color: black;
-  font-weight: bold;
-  font-size: 3.5vw;
-}
 
 .indv-posts {
   font-size:1.25vw;
