@@ -55,7 +55,9 @@ const Home = (props) => {
           <HAccess/>
           <div className = "posts-display-home"><em>Weekly Entries</em></div>
           <PostTable ALT_API_URL = {props.ALT_API_URL} posts = {props.table_posts}></PostTable>
+          <br></br>
         </div>
+        
       
     </>
     )

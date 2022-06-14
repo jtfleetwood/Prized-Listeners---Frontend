@@ -3,7 +3,7 @@ import {Form, Button} from "react-bootstrap";
 import { useState } from "react";
 import { post } from "../API Services/models/post";
 import { useUser } from "@auth0/nextjs-auth0";
-import { create_post } from "../API Services/posts";
+import { create_post, find_post_count_by_user } from "../API Services/posts";
 
 const CreatePost = ({ALT_API_URL}) => {
     const [title, setTitle] = useState('');
@@ -16,6 +16,10 @@ const CreatePost = ({ALT_API_URL}) => {
 
         if (!title || !artist || !link) {
             alert("Please fill out all available fields!");
+        }
+
+        if (await find_post_count_by_user(user.sub, 0, ALT_API_URL)) {
+            alert("You already posted this week!");
         }
 
         else {

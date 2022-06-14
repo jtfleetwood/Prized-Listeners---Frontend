@@ -3,17 +3,23 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 import { useUser } from "@auth0/nextjs-auth0/dist/frontend";
 
 const HAccess = (props) => {
-    const {user, isLoading} = useUser();
+    const {user} = useUser();
     const router = useRouter();
     
-    var profile_link = `./${user.sub}`;
-    var settings_link = `../account_settings`
+    let profile_link, settings_link;
+    
+    if (user) {
+        profile_link = `./${user.sub}`;
 
-    if (props.current_page !== "profile") {
-        profile_link = `/profiles/${user.sub}`
-        settings_link = 'account_settings'
+        settings_link = `../account_settings`
+
+        if (props.current_page !== "profile") {
+            profile_link = `/profiles/${user.sub}`
+            settings_link = 'account_settings'
+        }
     }
-
+    
+   
     return (
         <>  
             <body>
