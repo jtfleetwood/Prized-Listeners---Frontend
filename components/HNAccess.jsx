@@ -2,30 +2,33 @@ import {Button, Table, Navbar, Container, Nav, NavDropdown} from 'react-bootstra
 
 const HNAccess = () => {
     return (
-    <> 
+      <> 
       <div className = "page-holder">
-      <Navbar collapseOnSelect expand="lg">
-      <Container>
-      <Navbar.Brand style = {{color:'white', fontWeight:'bold', fontSize:'3vw'}} href="/">Prized Listeners</Navbar.Brand>
-      <Navbar.Toggle style = {{backgroundColor:'white'}} aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-      <Nav className="me-auto">
-          
-          </Nav>
-        <Nav>
-          <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'2vw'}}href="/api/auth/login">&nbsp;Sign in&nbsp;</Nav.Link>
-          <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'2vw'}}eventKey={2} href="#memes">
-            About us
-          </Nav.Link>
-          <Nav.Link style = {{color:'white', fontWeight:'bold', fontSize:'2vw'}}href="#deets">&nbsp;Contact</Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-      </Container>
-    </Navbar>
-    <div className = "welcome-message">Who has the &#128293;?</div>
-    <div className = "welcome-message1">Sign up and find out!</div>
-    </div>
-  </>
+        <body>
+        <nav class="navbar">
+            <div class="brand-title"><em>Prized Listeners</em></div>
+            <a onClick = {() => {
+                const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+                navbarLinks.classList.toggle('active')
+            }}href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            </a>
+            <div class="navbar-links">
+            <ul>
+                <li><a href="/api/auth/login">Sign in</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            </div>
+        </nav>
+        </body>
+        <div className= "welcome-message">LISTEN.</div>
+        <div className="welcome-message" style = {{color:"white"}}>SHARE.</div>
+        <div className="welcome-message">COMPETE.</div>
+        </div>
+      </>
     )
 } 
 

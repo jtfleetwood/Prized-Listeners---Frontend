@@ -52,20 +52,13 @@ p code {
 .welcome-message {
   position: relative;
   text-align: center;
-  color: white;
+  color:black;
   font-weight:bold;
   top: 10%;
   font-size: 7.5vw;
 }
 
-.welcome-message1 {
-  position: relative;
-  text-align: center;
-  color: white;
-  font-weight:bold;
-  top: 20%;
-  font-size: 5vw;
-}
+
 
 .signed-in-home {
   margin-left: 10%;
