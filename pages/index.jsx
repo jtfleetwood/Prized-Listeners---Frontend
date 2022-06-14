@@ -17,27 +17,6 @@ const Home = (props) => {
     await check_new_user(user.sub, props.ALT_API_URL);
   }
 
-  const onClick = async (e) => {
-    e.preventDefault();
-    try {
-      const post_count = await find_post_count_by_user(user.sub, 0, props.ALT_API_URL);
-  
-  
-      if (post_count) {
-        alert('You already posted this week!');
-        return;
-      }
-  
-      router.push("/create_new_post");
-      
-    }
-  
-    catch(error) {
-      console.log(error);
-    }
-  
-  }
-
   if (!user) {
     return(
     <HNAccess/>);
