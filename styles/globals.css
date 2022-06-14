@@ -50,9 +50,6 @@ p code {
 }
 
 
-
-
-
 .signed-in-home {
   margin-left: 10%;
   margin-top: 2.5%;
@@ -461,7 +458,7 @@ body {
 }
 
 .navbar-links li:hover {
-  background-color: #555;
+  transform:translateY(10%);
 }
 
 .toggle-button {
@@ -483,12 +480,35 @@ body {
   margin-bottom: .40vh;
 }
 
+.profile-dropdown {
+  background-color:black;
+  font-size:1.5vw;
+  font-weight:bold;
+  color:white;
+  margin-top:-2%;
+}
+
+.profile-dropdown-content {
+  color:black !important;
+  font-size:1vw;
+}
+
+.profile-dropdown-content:hover {
+  background:	#DCDCDC;
+  font-size:1vw;
+}
+
 @media (max-width: 800px) {
   .navbar {
       flex-direction: column;
       align-items: flex-start;
       padding:auto;
   }
+
+  .navbar-links li:hover {
+    transform:none;
+  }
+  
 
   .toggle-button {
       display: flex;
@@ -599,10 +619,12 @@ body {
 
 .upvote-button:hover {
   cursor:pointer;
+  transform:translateY(-5%);
 }
 
 .downvote-button:hover {
   cursor:pointer;
+  transform:translateY(5%);
 }
 
 .display-votes-container {

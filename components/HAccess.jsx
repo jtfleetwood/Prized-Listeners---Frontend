@@ -1,15 +1,16 @@
 import { useRouter } from "next/router";
 import { Dropdown, DropdownButton } from "react-bootstrap";
+import { useUser } from "@auth0/nextjs-auth0/dist/frontend";
 
 const HAccess = (props) => {
-
+    const {user, isLoading} = useUser();
     const router = useRouter();
     
-    var profile_link = `./${props.user_id}`;
+    var profile_link = `./${user.sub}`;
     var settings_link = `../account_settings`
 
     if (props.current_page !== "profile") {
-        profile_link = `/profiles/${props.user_id}`
+        profile_link = `/profiles/${user.sub}`
         settings_link = 'account_settings'
     }
 
@@ -28,12 +29,20 @@ const HAccess = (props) => {
                 </a>
                 <div className="navbar-links">
                 <ul>
+                    
                     <li><a href = "/create_new_post">Create Post</a></li>
-                    <li><a href = {profile_link}>Profile</a></li>
+                    <li><a href = "#">
+                        <DropdownButton bsPrefix = "profile-dropdown" title="Profile">
+                        <Dropdown.Item bsPrefix = "profile-dropdown-content" href={profile_link}>Information</Dropdown.Item>
+                        <Dropdown.Item bsPrefix = "profile-dropdown-content" href={settings_link}>Settings</Dropdown.Item>
+                        <Dropdown.Item href = "/api/auth/logout" bsPrefix = "profile-dropdown-content">Logout</Dropdown.Item>
+                        </DropdownButton>
+                    </a></li>
                     <li><a href="#">Leaderboards</a></li>
                 </ul>
                 </div>
             </nav>
+
             </body>
         </>
     )
