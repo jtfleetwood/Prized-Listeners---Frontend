@@ -53,19 +53,19 @@ const CreatePost = ({ALT_API_URL}) => {
                 <div className = "form-container">
                 <Form>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
-                        <Form.Label style={{fontSize:'1vw', color:'white', fontWeight:'bold'}}>Title</Form.Label>
-                        <Form.Control style = {{fontSize: '.75vw'}} value = {title} onChange = {(e) => setTitle(e.target.value)} type="text" placeholder="Enter title" />
+                        <Form.Label className = "form-label">Title</Form.Label>
+                        <Form.Control className = "form-control" value = {title} onChange = {(e) => setTitle(e.target.value)} type="text" placeholder="Enter title" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupPassword">
-                        <Form.Label style={{fontSize: '1vw', color:'white', fontWeight:'bold'}}>Artist</Form.Label>
-                        <Form.Control style = {{fontSize: '.75vw'}} value = {artist} onChange = {(e) => setArtist(e.target.value)} placeholder="Enter artist" />
+                        <Form.Label className = "form-label">Artist</Form.Label>
+                        <Form.Control className = "form-control" value = {artist} onChange = {(e) => setArtist(e.target.value)} placeholder="Enter artist" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
-                        <Form.Label style={{fontSize : '1vw', color:'white', fontWeight:'bold'}}>Youtube</Form.Label>
-                        <Form.Control style = {{fontSize: '.75vw'}} value = {link} onChange = {(e) => setLink(e.target.value)} type="text" placeholder="Enter link" />
+                        <Form.Label className = "form-label">Youtube</Form.Label>
+                        <Form.Control className = "form-control" value = {link} onChange = {(e) => setLink(e.target.value)} type="text" placeholder="Enter link" />
                     </Form.Group>
                 </Form>
-                <Button onClick = {onSubmission} style = {{fontSize:'.75vw', fontWeight:'bold', color:'rgb(23, 26, 26)'}} variant = "info" className = "post-form-button" >Create Entry</Button>
+                <Button style = {{fontWeight:'bold'}}onClick = {onSubmission} variant = "info" className = "post-form-button" >Create Entry</Button>
                 </div>
             </div>
         </>

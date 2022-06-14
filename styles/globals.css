@@ -196,7 +196,7 @@ p code {
 }
 
 
-@media (max-width:900px) {
+@media (max-width:800px) {
   .form-container {
     position: relative;
     margin:auto;
@@ -204,7 +204,7 @@ p code {
     width: 50%;
     border-radius: 1vw;
     background: rgb(23, 26, 26);
-    padding: 2%;
+    padding: 4%;
   }
 
   .post-form-title {
@@ -212,13 +212,36 @@ p code {
     text-align: center;
     color: black;
     font-weight: bold;
-    font-size: 5vw;
+    font-size: 7vw;
     top:5%;
   }
 
+  .form-label {
+    font-size:4vw;
+    color:white;
+    font-weight:bold;
+  }
+
+  .form-control {
+    font-size:1vw;
+  }
+
+  .post-form-button {
+    position: relative;
+    margin:auto;
+    text-align:center;
+    font-weight:bold;
+    width:80%;
+    margin-top:25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+  }
+  
+
 }
 
-@media (min-width:901px) {
+@media (min-width:801px) {
   .form-container {
     position: relative;
     left: 40%;
@@ -238,17 +261,30 @@ p code {
     font-size: 3.5vw;
   }
 
-}
+  .form-label {
+    font-size:1vw;
+    color:white;
+    font-weight:bold;
+  }
 
+  .form-control {
+    font-size:.75vw;
+  }
 
-.post-form-button {
-  position: relative;
-  margin-top:10%;
-  text-align:center;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  .post-form-button {
+    position: relative;
+    margin-top:10%;
+    text-align:center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight:bold;
+    
+  }
   
+
 }
+
+
 
 
 .indv-posts {
@@ -540,3 +576,4 @@ body {
   color:black;
   font-size:1.5vw;
 }
+
