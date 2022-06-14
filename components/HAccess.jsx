@@ -1,6 +1,8 @@
-import {Button, Dropdown, Table, Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
+import { useRouter } from "next/router";
 
 const HAccess = (props) => {
+
+    const router = useRouter();
     
     var profile_link = `./${props.user_id}`;
     var settings_link = `../account_settings`
@@ -12,26 +14,22 @@ const HAccess = (props) => {
 
     return (
         <>  
-            <head>
-            <script src="script.js" defer></script>
-            <title>Responsive Navbar</title>
-            </head>
             <body>
-            <nav class="navbar">
-                <div class="brand-title"><em>Prized Listeners</em></div>
+            <nav className="navbar">
+                <div onClick = {() => router.push("/")}className="brand-title"><em>Prized Listeners</em></div>
                 <a onClick = {() => {
                     const navbarLinks = document.getElementsByClassName('navbar-links')[0]
                     navbarLinks.classList.toggle('active')
                 }}href="#" class="toggle-button">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
                 </a>
-                <div class="navbar-links">
+                <div className="navbar-links">
                 <ul>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href = "/create_new_post">Create Post</a></li>
+                    <li><a href="/">Profile</a></li>
                     <li><a href="#">Leaderboards</a></li>
-                    <li><a href="#">Contact</a></li>
                 </ul>
                 </div>
             </nav>

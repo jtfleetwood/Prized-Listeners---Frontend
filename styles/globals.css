@@ -195,15 +195,33 @@ p code {
   color: dark;
 }
 
-.form-container {
-  position: relative;
-  left: 40%;
-  top: 15%;
-  width: 20%;
-  border-radius: 1vw;
-  background: rgb(23, 26, 26);
-  padding: 2%;
+
+@media (max-width:900px) {
+  .form-container {
+    position: relative;
+    margin:auto;
+    margin-top:30%;
+    width: 50%;
+    border-radius: 1vw;
+    background: rgb(23, 26, 26);
+    padding: 2%;
+  }
+
 }
+
+@media (min-width:901px) {
+  .form-container {
+    position: relative;
+    left: 40%;
+    top: 15%;
+    width: 20%;
+    border-radius: 1vw;
+    background: rgb(23, 26, 26);
+    padding: 2%;
+  }
+
+}
+
 
 .post-form-button {
   position: relative;
@@ -218,7 +236,7 @@ p code {
   position: relative;
   top: 10%;
   text-align: center;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 3.5vw;
 }
@@ -329,6 +347,10 @@ body {
   font-size:2.5vw;
   font-weight:bold;
   margin-left:1%;
+}
+
+.brand-title:hover {
+  cursor:pointer;
 }
 
 .navbar-links {

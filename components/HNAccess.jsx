@@ -5,17 +5,17 @@ const HNAccess = () => {
       <> 
       <div className = "page-holder">
         <body>
-        <nav class="navbar">
-            <div class="brand-title"><em>Prized Listeners</em></div>
+        <nav className="navbar">
+            <div className="brand-title"><em>Prized Listeners</em></div>
             <a onClick = {() => {
                 const navbarLinks = document.getElementsByClassName('navbar-links')[0]
                 navbarLinks.classList.toggle('active')
             }}href="#" class="toggle-button">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
             </a>
-            <div class="navbar-links">
+            <div className="navbar-links">
             <ul>
                 <li><a href="/api/auth/login">Sign in</a></li>
                 <li><a href="#">About us</a></li>
