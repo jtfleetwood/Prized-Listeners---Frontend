@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { Dropdown, DropdownButton } from "react-bootstrap";
 
 const HAccess = (props) => {
 
@@ -28,7 +29,7 @@ const HAccess = (props) => {
                 <div className="navbar-links">
                 <ul>
                     <li><a href = "/create_new_post">Create Post</a></li>
-                    <li><a href="/">Profile</a></li>
+                    <li><a href = {profile_link}>Profile</a></li>
                     <li><a href="#">Leaderboards</a></li>
                 </ul>
                 </div>

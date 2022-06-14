@@ -65,7 +65,7 @@ const CreatePost = ({ALT_API_URL}) => {
                         <Form.Control className = "form-control" value = {link} onChange = {(e) => setLink(e.target.value)} type="text" placeholder="Enter link" />
                     </Form.Group>
                 </Form>
-                <Button style = {{fontWeight:'bold'}}onClick = {onSubmission} variant = "info" className = "post-form-button" >Create Entry</Button>
+                <Button style = {{fontWeight:'bold'}} onClick = {onSubmission} variant = "info" className = "post-form-button" >Create Entry</Button>
                 </div>
             </div>
         </>
