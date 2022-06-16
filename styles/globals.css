@@ -347,10 +347,9 @@ p code {
     text-align:center;
     font-weight:bold;
     width:80%;
-    margin-top:25%;
+    margin-top:10%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
   }
 
   .post-container {
@@ -382,9 +381,10 @@ p code {
 @media (min-width:801px) {
   .form-container {
     position: relative;
-    left: 40%;
-    top: 15%;
-    width: 20%;
+    margin:auto;
+    display:block;
+    margin-top: 7%;
+    width: 40%;
     border-radius: 1vw;
     background: rgb(23, 26, 26);
     padding: 2%;
@@ -419,10 +419,11 @@ p code {
 
   .post-form-button {
     position: relative;
-    margin-top:10%;
+    display:block !important;
+    margin:auto;
     text-align:center;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top:5%;
+    width:40%;
     font-weight:bold;
     
   }
