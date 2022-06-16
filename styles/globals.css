@@ -699,6 +699,12 @@ body {
   font-size:2vw;
 }
 
+.about-container span {
+  color:black;
+  font-weight:bold;
+  font-size:2vw;
+}
+
 .about-container p span {
   color:white;
   font-weight:normal;
@@ -722,12 +728,34 @@ body {
   color:gold;
 }
 
+.self-image {
+  display:block;
+  width:15%;
+  border:solid;
+  border-color:white;
+  border-radius:50%;
+  margin:auto;
+  margin-top:2.5%;
+}
+
+
+
 
 @media (max-width: 800px) {
 
+  .self-image {
+    display:block;
+    width:20%;
+    border:solid;
+    border-color:white;
+    border-radius:50%;
+    margin:auto;
+    margin-top:5%;
+  }
+
   .about-header {
     margin-left:10%;
-    margin-top:2.5%;
+    margin-top:5%;
     font-size:6vw;
     color:black;
     font-weight:bold;
@@ -745,6 +773,12 @@ body {
   }
   
   .about-container p {
+    color:black;
+    font-weight:bold;
+    font-size:3vw;
+  }
+
+  .about-container span {
     color:black;
     font-weight:bold;
     font-size:3vw;

@@ -21,7 +21,7 @@ const HNAccess = () => {
             <ul>
                 <li><a href="/api/auth/login">Sign in</a></li>
                 <li><a href="/About">About us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/Contact">Contact</a></li>
             </ul>
             </div>
         </nav>
