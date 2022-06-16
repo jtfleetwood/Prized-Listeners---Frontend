@@ -5,8 +5,19 @@ import {useRouter} from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 
 const parseLink = (link) => {
-    const index = link.indexOf("watch?v=");
-    return link.slice(index + 8);
+    let index = link.indexOf("watch?v=");
+    
+    if (index > -1) {
+        return link.slice(index + 8);
+    }
+
+    // Check for mobile link..
+    index = link.indexOf("youtu.be/");
+
+    if (index > -1) {
+        return link.slice(index+9);
+    }
+    
 }
 
 
@@ -16,7 +27,6 @@ const Post = (props) => {
     const {user} = useUser();
 
     const on_upvote = async (post_id) => {
-        console.log(post_id);
 
         try {
             if (await check_user_self_vote(user.sub, post_id, props.ALT_API_URL)) {
