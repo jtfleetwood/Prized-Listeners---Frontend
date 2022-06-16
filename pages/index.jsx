@@ -19,7 +19,15 @@ const Home = (props) => {
 
   if (!user) {
     return(
-    <HNAccess/>);
+      <>
+        <div className = "page-holder">
+          <HNAccess/>
+          <div className= "welcome-message">LISTEN.</div>
+          <div className="welcome-message" style = {{color:"white"}}>SHARE.</div>
+          <div className="welcome-message">COMPETE.</div>
+        </div>
+      </>
+    );
   }
 
   else {

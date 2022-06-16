@@ -674,8 +674,105 @@ body {
   color:black;
 }
 
+.about-header {
+  margin-left:10%;
+  margin-top:2.5%;
+  font-size:5vw;
+  color:black;
+  font-weight:bold;
+}
+
+.about-container {
+  margin-left:10%;
+  margin-top:2.5%;
+  width:80%;
+  border: solid;
+  border-radius:2vw;
+  padding:2%;
+  border-width:medium;
+  border-color:white;
+}
+
+.about-container p {
+  color:black;
+  font-weight:bold;
+  font-size:2vw;
+}
+
+.about-container p span {
+  color:white;
+  font-weight:normal;
+  margin-left:5%;
+}
+
+.about-container p p {
+  color:white;
+  font-weight:normal;
+  margin-left:5%;
+}
+
+.about-signup-link {
+  text-decoration:none;
+  color:black;
+}
+
+.about-signup-link:hover {
+  display:inline-block;
+  transform:translateY(-10%);
+  color:gold;
+}
+
 
 @media (max-width: 800px) {
+
+  .about-header {
+    margin-left:10%;
+    margin-top:2.5%;
+    font-size:6vw;
+    color:black;
+    font-weight:bold;
+  }
+  
+  .about-container {
+    margin-left:10%;
+    margin-top:2.5%;
+    width:80%;
+    border: solid;
+    border-radius:2vw;
+    padding:2%;
+    border-width:thin;
+    border-color:white;
+  }
+  
+  .about-container p {
+    color:black;
+    font-weight:bold;
+    font-size:3vw;
+  }
+  
+  .about-container p span {
+    color:white;
+    font-weight:normal;
+    margin-left:5%;
+  }
+  
+  .about-container p p {
+    color:white;
+    font-weight:normal;
+    margin-left:5%;
+  }
+  
+  .about-signup-link {
+    text-decoration:none;
+    color:black;
+  }
+  
+  .about-signup-link:hover {
+    display:inline-block;
+    transform:translateY(-10%);
+    color:gold;
+  }
+
   .navbar {
       flex-direction: column;
       align-items: flex-start;
