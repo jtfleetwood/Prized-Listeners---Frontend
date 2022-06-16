@@ -1,3 +1,5 @@
+import { FetchEvent } from "next/dist/server/web/spec-compliant/fetch-event";
+
 export const check_user_vote = async (user_id, ALT_API_URL) => {
     try {
         const response = await fetch(`${ALT_API_URL}users/${user_id}/check_vote`, {
@@ -84,6 +86,42 @@ export const change_user_display_name = async (ALT_API_URL, user_id, new_name) =
     }
 
     catch (error) {
+        console.log(error);
+    }
+}
+
+export const get_users = async (ALT_API_URL) => {
+    
+    try {
+        const response = await fetch(`${ALT_API_URL}users`, {
+            method:'GET',
+            headers:{'content-type':'application/json'}
+        });
+
+        const users = await response.json();
+
+        return users;
+    }
+
+    catch (error) {
+        console.log(error);
+    }
+
+}
+
+export const get_user_by_id = async (ALT_API_URL, user_id) => {
+    try {
+        const response = await fetch(`${ALT_API_URL}users/${user_id}`, {
+            method:'GET',
+            headers:{'content-type':'application/json'}
+        });
+
+        const user = await response.json();
+
+        return user;
+    }
+
+    catch(error) {
         console.log(error);
     }
 }

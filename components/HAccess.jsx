@@ -9,14 +9,20 @@ const HAccess = (props) => {
     let profile_link, settings_link;
     
     if (user) {
-        profile_link = `./${user.sub}`;
+        profile_link = `profiles/self/${user.sub}`;
 
-        settings_link = `../account_settings`
+        settings_link = `account_settings`;
 
-        if (props.current_page !== "profile") {
-            profile_link = `/profiles/${user.sub}`
-            settings_link = 'account_settings'
+        if (props.current_page === "profile-self") {
+            profile_link = `./${user.sub}`;
+            settings_link = `../../account_settings`;
         }
+
+        else if (props.current_page == "profile") {
+            profile_link = `../profiles/self/${user.sub}`;
+            settings_link = `../account_settings`;
+        }
+
     }
     
    
@@ -44,7 +50,7 @@ const HAccess = (props) => {
                         <Dropdown.Item href = "/api/auth/logout" bsPrefix = "profile-dropdown-content">Logout</Dropdown.Item>
                         </DropdownButton>
                     </a></li>
-                    <li><a href="#">Leaderboards</a></li>
+                    <li><a href="/leaderboards">Leaderboards</a></li>
                 </ul>
                 </div>
             </nav>

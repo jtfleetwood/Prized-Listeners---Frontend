@@ -27,9 +27,6 @@ const Home = (props) => {
 
     return (
       <>
-        <head>
-          <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        </head>
         <div className = "page-holder">
           <HAccess/>
           <div className = "posts-display-home"><em>Weekly Entries</em></div>
