@@ -28,7 +28,7 @@ const HAccess = (props) => {
                 <a onClick = {() => {
                     const navbarLinks = document.getElementsByClassName('navbar-links')[0]
                     navbarLinks.classList.toggle('active')
-                }}href="#" class="toggle-button">
+                }}href="#" className="toggle-button">
                 <span className="bar"></span>
                 <span className="bar"></span>
                 <span className="bar"></span>

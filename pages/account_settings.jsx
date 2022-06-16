@@ -74,6 +74,7 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
                     <div className = "reset-name">Verify Change: <input value = {v_display_name} onChange = {(e) => set_v_display_name(e.target.value)} className = "display-change-input"></input></div>
                     <button onClick = {() => on_name_reset(ALT_API_URL, user.sub, display_name, v_display_name)}className = "submit-changes-button" variant="dark">Submit Changes</button>
                     <div className = "reset-password">Change Password: <button onClick = {() => on_password_submit(user.name, auth_url, auth_client_id)} className = "reset-password-button" variant="dark">Reset Password</button></div>
+                    
                 </div>
             </>
         )

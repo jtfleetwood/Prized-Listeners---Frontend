@@ -81,8 +81,8 @@ const Post = (props) => {
             <span className = "display-votes">{props.upvotes}</span>
           </div>
           <div className = "vote-container">
-            <img onClick = {() => on_upvote(props.id)} className = "upvote-button" src = "upvote.png"></img>
-            <img onClick = {() => on_downvote(props.id)} className = "downvote-button" src ="downvote.png"></img>
+            <div className = "upvote-button" onClick = {() => on_upvote(props.id)}>&#128077;</div>
+            <div className = "downvote-button" onClick = {() => on_downvote(props.id)}>&#128078;</div>
           </div>
         </div>
         </>

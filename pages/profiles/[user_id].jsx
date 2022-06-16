@@ -33,6 +33,7 @@ const Profile = (props) => {
                         </div>
                     </div>
                     <button className = "create-post-button" onClick = {(e) => router.push('../account_settings')} variant="dark">Edit Information</button>
+                    
                 </div>
             </>
         )
