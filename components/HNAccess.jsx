@@ -10,7 +10,7 @@ const HNAccess = () => {
             <a onClick = {() => {
                 const navbarLinks = document.getElementsByClassName('navbar-links')[0]
                 navbarLinks.classList.toggle('active')
-            }}href="#" class="toggle-button">
+            }}href="#" className="toggle-button">
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>
@@ -24,9 +24,9 @@ const HNAccess = () => {
             </div>
         </nav>
         </body>
-        <div className= "welcome-message">LISTEN.</div>
-        <div className="welcome-message" style = {{color:"white"}}>SHARE.</div>
-        <div className="welcome-message">COMPETE.</div>
+          <div className= "welcome-message">LISTEN.</div>
+          <div className="welcome-message" style = {{color:"white"}}>SHARE.</div>
+          <div className="welcome-message">COMPETE.</div>
         </div>
       </>
     )

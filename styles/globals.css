@@ -84,7 +84,7 @@ p code {
     border-color:white;
     border-radius:1vw;
     font-size: 3vw;
-    height:3%;
+    height:5%;
     border-width:thin;
     color:white;
     padding:.5vw;
@@ -103,7 +103,7 @@ p code {
 
   .display-change-input {
     position:absolute;
-    left: 40%;
+    left: 45%;
   }
 
   .profile-info-container {
@@ -125,7 +125,7 @@ p code {
 
   .submit-changes-button {
     position: fixed;
-    left:48%;
+    left:53%;
     margin-top:10%;
     font-weight: bold !important;
     background: rgb(23, 26, 26);
@@ -146,7 +146,7 @@ p code {
     border-radius:1vw;
     width:20%;
     margin:auto;
-    left:48%;
+    left:53%;
     border-width:thin;
     color:white;
     font-size: 2vw;
@@ -663,11 +663,12 @@ body {
   
   .upvote-button {
     margin-top:-1%;
-    font-size:4vw;
+    margin-bottom:10%;
+    font-size:3.5vw;
   }
   
   .downvote-button {
-    font-size:4vw;
+    font-size:3.5vw;
   }
 
   
