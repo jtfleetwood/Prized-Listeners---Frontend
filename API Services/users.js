@@ -42,13 +42,31 @@ export const get_user_win_count = async (user_id, ALT_API_URL) => {
         });
 
         const json_response = await response.json();
-        return json_response.count;
+        return json_response.win_count;
     }
 
     catch (error) {
         console.log(error);
     }
-    
+
+}
+
+
+export const get_user_tie_count = async (user_id, ALT_API_URL) => {
+
+    try {
+        const response = await fetch(`${ALT_API_URL}wins/user/${user_id}`, {
+            method:'GET',
+            headers:{'content-type':'application/json'}
+        });
+
+        const json_response = await response.json();
+        return json_response.win_count;
+    }
+
+    catch (error) {
+        console.log(error);
+    }
 
 }
 

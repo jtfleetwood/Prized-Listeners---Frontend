@@ -4,6 +4,7 @@ import { useState } from "react";
 import { post } from "../API Services/models/post";
 import { useUser } from "@auth0/nextjs-auth0";
 import { create_post, find_post_count_by_user } from "../API Services/posts";
+import { get_current_week } from "../API Services/maintenance";
 
 const CreatePost = ({ALT_API_URL}) => {
     const [title, setTitle] = useState('');
@@ -14,11 +15,13 @@ const CreatePost = ({ALT_API_URL}) => {
     const onSubmission = async (e) => {
         e.preventDefault();
 
+        const current_week = await get_current_week(ALT_API_URL);
+
         if (!title || !artist || !link) {
             alert("Please fill out all available fields!");
         }
 
-        if (await find_post_count_by_user(user.sub, 0, ALT_API_URL)) {
+        if (await find_post_count_by_user(user.sub, current_week, ALT_API_URL)) {
             alert("You already posted this week!");
         }
 
@@ -26,7 +29,7 @@ const CreatePost = ({ALT_API_URL}) => {
 
             try {
                 
-                const response = await create_post(new post(user.sub, title, 0, link, artist, 0, false), ALT_API_URL);
+                const response = await create_post(new post(user.sub, title, 0, link, artist, current_week, false), ALT_API_URL);
                 alert('Thanks for the submission! We look forward to seeing you on the leaderboards :)');
 
             }

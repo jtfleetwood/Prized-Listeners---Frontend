@@ -1,6 +1,6 @@
 import HAccess from '../../../components/HAccess';
 import { useUser } from '@auth0/nextjs-auth0';
-import {get_user_win_count} from '../../../API Services/users';
+import {get_user_by_id, get_user_win_count} from '../../../API Services/users';
 import { useRouter } from 'next/router';
 
 const SelfProfile = (props) => {
@@ -25,8 +25,11 @@ const SelfProfile = (props) => {
                         <div className = "profile-info-heading">Display Name:
                          <span className = "profile-info-content">{user.nickname}</span>
                         </div>
+                        <div className = "profile-info-heading">Ties:
+                         <span className = "profile-info-content">{props.ext_user.app_metadata.tie_count}</span>
+                        </div>
                         <div className = "profile-info-heading">Wins:
-                         <span className = "profile-info-content">{props.win_count}</span>
+                         <span className = "profile-info-content">{props.ext_user.app_metadata.win_count}</span>
                         </div>
                     </div>
                     
@@ -46,8 +49,8 @@ export async function getServerSideProps(context) {
     // Actual need of API URL is called in browser-side code, thus not available as process.env var. Also not able to config with dotenv pkg due to pkg not being available on server side.
     // See cannot resolve: fs module w/ NextJS for more info... 
     const ALT_API_URL = process.env.API_URL;
-    const win_count = await get_user_win_count(context.params.user_id, process.env.API_URL);
-    return {props : {ALT_API_URL, win_count}};
+    const ext_user = await get_user_by_id(ALT_API_URL, context.params.user_id);
+    return {props : {ALT_API_URL, ext_user}};
 }
 
 

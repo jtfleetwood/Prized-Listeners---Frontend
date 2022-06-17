@@ -25,7 +25,7 @@ const create_standings = (users) => {
 
 const Leaderboard = ({users}) => {
 
-    users.sort((a, b) => b.app_metadata.win_count - a.app_metadata.win_count);
+    users.sort((a, b) => (b.app_metadata.win_count + b.app_metadata.tie_count) - (a.app_metadata.win_count + a.app_metadata.tie_count));
 
     const standings = create_standings(users);
 

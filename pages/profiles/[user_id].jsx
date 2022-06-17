@@ -23,6 +23,9 @@ const Profile = (props) => {
                         <div className = "profile-info-heading">Display Name:
                          <span className = "profile-info-content">{props.ext_user.nickname}</span>
                         </div>
+                        <div className = "profile-info-heading">Ties:
+                         <span className = "profile-info-content">{props.ext_user.app_metadata.tie_count}</span>
+                        </div>
                         <div className = "profile-info-heading">Wins:
                          <span className = "profile-info-content">{props.ext_user.app_metadata.win_count}</span>
                         </div>
