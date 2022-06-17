@@ -10,12 +10,13 @@ const create_standings = (users) => {
 
     // We know win_count is coming in descending order, hence use of max...
     for (let i = 0; i < users.length; i++) {
-        if (users[i].app_metadata.win_count < max) {
-            max = users[i].app_metadata.win_count;
-            standings[++current_standing].push(users[i]);
+        if ((users[i].app_metadata.win_count + users[i].app_metadata.tie_count) < max) {
+            max = users[i].app_metadata.win_count + users[i].app_metadata.tie_count;
+            standings[++current_standing] = new Array();
+            standings[current_standing].push(users[i]);
         }
 
-        else if (users[i].app_metadata.win_count === max) {
+        else if ((users[i].app_metadata.win_count + users[i].app_metadata.tie_count) === max) {
             standings[current_standing].push(users[i]);
         }
     }
