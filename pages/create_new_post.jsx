@@ -5,6 +5,7 @@ import { post } from "../API Services/models/post";
 import { useUser } from "@auth0/nextjs-auth0";
 import { create_post, find_post_count_by_user } from "../API Services/posts";
 import { get_current_week } from "../API Services/maintenance";
+import Footer from "../components/Footer";
 
 const CreatePost = ({ALT_API_URL}) => {
     const [title, setTitle] = useState('');
@@ -74,6 +75,8 @@ const CreatePost = ({ALT_API_URL}) => {
                 </Form>
                 <Button style = {{fontWeight:'bold'}} onClick = {onSubmission} variant = "info" className = "post-form-button" >Create Entry</Button>
                 </div>
+                <Footer/>
+                
             </div>
         </>
     );

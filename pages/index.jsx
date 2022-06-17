@@ -1,4 +1,3 @@
-import {Button} from 'react-bootstrap';
 import {useUser} from '@auth0/nextjs-auth0';
 import HNAccess from '../components/HNAccess';
 import HAccess from '../components/HAccess';
@@ -6,8 +5,7 @@ import PostTable from '../components/PostTable';
 import {useRouter} from 'next/router';
 import {get_posts} from '../API Services/posts'
 import { check_new_user } from '../API Services/users';
-import {find_post_count_by_user} from '../API Services/posts';
-import Post from '../components/post';
+import Footer from '../components/Footer';
 
 const Home = (props) => {
   const {user} = useUser();
@@ -25,6 +23,7 @@ const Home = (props) => {
           <div className= "welcome-message">LISTEN.</div>
           <div className="welcome-message" style = {{color:"white"}}>SHARE.</div>
           <div className="welcome-message">COMPETE.</div>
+          <Footer/>
         </div>
       </>
     );
@@ -39,7 +38,7 @@ const Home = (props) => {
           <HAccess/>
           <div className = "posts-display-home"><em>Weekly Entries</em></div>
           <PostTable ALT_API_URL = {props.ALT_API_URL} posts = {props.table_posts}></PostTable>
-          <br></br>
+          <Footer/>
         </div>
         
       

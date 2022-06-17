@@ -1,4 +1,5 @@
 import HNAccess from "../components/HNAccess";
+import Footer from "../components/Footer";
 
 
 const AboutUs = () => {
@@ -44,6 +45,7 @@ const AboutUs = () => {
                 </div>
                 <br/>
                 <br/>
+                <Footer/>
             </div>
         
         </>

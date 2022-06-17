@@ -3,6 +3,7 @@ import { useUser } from '@auth0/nextjs-auth0';
 import {get_user_win_count} from '../../API Services/users';
 import { useRouter } from 'next/router';
 import { get_user_by_id } from '../../API Services/users';
+import Footer from '../../components/Footer';
 
 const Profile = (props) => {
     
@@ -30,6 +31,7 @@ const Profile = (props) => {
                          <span className = "profile-info-content">{props.ext_user.app_metadata.win_count}</span>
                         </div>
                     </div>
+                    <Footer/>
                     
                 </div>
             </>

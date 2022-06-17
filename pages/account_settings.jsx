@@ -3,6 +3,7 @@ import { useUser } from "@auth0/nextjs-auth0";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 import { change_user_display_name, reset_user_password } from "../API Services/users";
+import Footer from "../components/Footer";
 
 
 const on_password_submit = async (email, auth_url, auth_client_id) => {
@@ -73,7 +74,9 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
                     <div className = "reset-name">Change Display Name: <input value = {display_name} onChange = {(e) => set_display_name(e.target.value)}className = "display-change-input"></input></div>
                     <div className = "reset-name">Verify Change: <input value = {v_display_name} onChange = {(e) => set_v_display_name(e.target.value)} className = "display-change-input"></input></div>
                     <button onClick = {() => on_name_reset(ALT_API_URL, user.sub, display_name, v_display_name)}className = "submit-changes-button" variant="dark">Submit Changes</button>
-                    <div className = "reset-password">Change Password: <button onClick = {() => on_password_submit(user.name, auth_url, auth_client_id)} className = "reset-password-button" variant="dark">Reset Password</button></div>
+                    <div className = "reset-password">Change Password: </div>
+                    <button onClick = {() => on_password_submit(user.name, auth_url, auth_client_id)} className = "reset-password-button" variant="dark">Reset Password</button>
+                    <Footer/>
                     
                 </div>
             </>

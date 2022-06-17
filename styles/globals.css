@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -47,6 +52,7 @@ p code {
   background-position: center;
   background-size: cover;
   overflow-y:scroll;
+  overflow-x:hidden;
 }
 
 
@@ -70,6 +76,7 @@ p code {
 .posts-table {
   color: white;
 }
+
 
 @media (max-width:993px) {
   .create-post-button {
@@ -124,7 +131,7 @@ p code {
   }
 
   .submit-changes-button {
-    position: fixed;
+    position: relative !important;
     left:53%;
     margin-top:10%;
     font-weight: bold !important;
@@ -139,18 +146,19 @@ p code {
   }
 
   .reset-password-button {
-    position:fixed;
+    position: relative !important;
+    left:53%;
+    top:-3%;
     font-weight: bold !important;
     background: rgb(23, 26, 26);
     border-color:white;
     border-radius:1vw;
-    width:20%;
-    margin:auto;
-    left:53%;
     border-width:thin;
+    width:20%;
     color:white;
     font-size: 2vw;
     padding:1vw;
+    
   }
 
   .reset-name {
@@ -158,6 +166,7 @@ p code {
     color:white;
     font-weight: bold;
     margin-left: 5%;
+    margin-right:5%;
     margin-top: 5%;
   }
 }
@@ -204,7 +213,7 @@ p code {
   }
 
   .submit-changes-button {
-    position: fixed;
+    position: relative;
     left: 34% !important;
     margin-top:2.5%;
     font-weight: bold !important;
@@ -219,12 +228,13 @@ p code {
   }
 
   .reset-password-button {
-    position: fixed;
+    position: relative;
     left: 34% !important;
-    width:15%;
     font-weight: bold !important;
     background: rgb(23, 26, 26);
     border-color:white;
+    width:15%;
+    top:-7%;
     border-radius:1vw;
     border-width:medium;
     color:white;
@@ -739,6 +749,24 @@ body {
 }
 
 
+.footer-container {
+  width:100%;
+  background-color:black;
+  display:block;
+  color:white;
+  height:8%;
+  margin-top:20%;
+  padding:.8%;
+}
+
+.footer-container span{
+  color:white;
+  display:block;
+  text-align:center;
+  font-weight:bold;
+  font-size:.75vw;
+}
+
 
 
 @media (max-width: 800px) {
@@ -760,6 +788,27 @@ body {
     color:black;
     font-weight:bold;
   }
+
+  .footer-container {
+    width:100%;
+    background-color:black;
+    display:block;
+    color:white;
+    margin-top:30%;
+    bottom:0;
+    position:fixed;
+    height:5%;
+    padding:2.5%;
+  }
+  
+  .footer-container span{
+    color:white;
+    display:block;
+    text-align:center;
+    font-weight:bold;
+    font-size:1.5vw;
+  }
+  
   
   .about-container {
     margin-left:10%;

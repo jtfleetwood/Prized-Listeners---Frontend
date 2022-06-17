@@ -1,6 +1,7 @@
 import { get_users } from "../API Services/users"
 import HAccess from "../components/HAccess";
 import UserStanding from "../components/UserStanding";
+import Footer from "../components/Footer";
 
 const create_standings = (users) => {
     var standings = [[]];
@@ -35,6 +36,7 @@ const Leaderboard = ({users}) => {
             <HAccess/>
             <div className = "leaderboard-title">Current Standings</div>
             {standings.map((users_, rank_) => <UserStanding users = {users_} rank = {rank_ + 1}/>)}
+            <Footer/>
         </div>
     )
 
