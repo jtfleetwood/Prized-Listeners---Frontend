@@ -2,6 +2,12 @@ import Post from './post';
 
 const PostTable = (props) => {
 
+    
+
+    if (props.posts.length === 0) {
+        return <span className = "no-post-message">No posts yet. Post now to get us started this week!</span> 
+    }
+
     props.posts.sort((a, b) => b.upvotes - a.upvotes);
 
     return (

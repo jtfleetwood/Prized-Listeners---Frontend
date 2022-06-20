@@ -76,8 +76,8 @@ const CreatePost = ({ALT_API_URL}) => {
                 <Button style = {{fontWeight:'bold'}} onClick = {onSubmission} variant = "info" className = "post-form-button" >Create Entry</Button>
                 </div>
                 <Footer/>
-                
             </div>
+            
         </>
     );
     
