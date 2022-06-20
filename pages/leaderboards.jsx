@@ -2,6 +2,7 @@ import { get_users } from "../API Services/users"
 import HAccess from "../components/HAccess";
 import UserStanding from "../components/UserStanding";
 import Footer from "../components/Footer";
+import { useUser } from "@auth0/nextjs-auth0";
 
 const create_standings = (users) => {
     var standings = [[]];
@@ -26,19 +27,33 @@ const create_standings = (users) => {
 }
 
 const Leaderboard = ({users}) => {
+    const {user, isLoading} = useUser();
 
     users.sort((a, b) => (b.app_metadata.win_count + b.app_metadata.tie_count) - (a.app_metadata.win_count + a.app_metadata.tie_count));
 
     const standings = create_standings(users);
 
-    return (
-        <div className = "page-holder">
-            <HAccess/>
-            <div className = "leaderboard-title">Current Standings</div>
-            {standings.map((users_, rank_) => <UserStanding users = {users_} rank = {rank_ + 1}/>)}
-            <Footer/>
-        </div>
-    )
+    if (user && !isLoading) {
+        return (
+            <div className = "page-holder">
+                <HAccess/>
+                <div className = "leaderboard-title">Current Standings</div>
+                {standings.map((users_, rank_) => <UserStanding users = {users_} rank = {rank_ + 1}/>)}
+                <Footer/>
+            </div>
+        )
+
+    }
+
+    else if (user && isLoading) {
+        return <div>Loading!</div>
+    }
+
+    else {
+        return <div>You're not authorized to access this page!</div>
+    }
+
+    
 
 }
 

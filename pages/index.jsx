@@ -8,12 +8,13 @@ import { check_new_user } from '../API Services/users';
 import Footer from '../components/Footer';
 
 const Home = (props) => {
-  const {user} = useUser();
+  const {user, isLoading} = useUser();
   const router = useRouter();
 
   const on_sign_in = async () => {
     await check_new_user(user.sub, props.ALT_API_URL);
   }
+
 
   if (!user) {
     return(
@@ -27,6 +28,10 @@ const Home = (props) => {
         </div>
       </>
     );
+  }
+
+  else if (user && isLoading) {
+    return <div>Loading!</div>
   }
 
   else {

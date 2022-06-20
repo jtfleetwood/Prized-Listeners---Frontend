@@ -62,8 +62,12 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
         }
     }
 
+    if (!user) {
+        return <div>You are not authorized to access this page!</div>
+    }
 
-    if (user && !isLoading) {
+
+    else if (user && !isLoading) {
         return (
             <>
                 <head>
