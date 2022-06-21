@@ -6,6 +6,7 @@
 import { useRouter } from "next/router";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { useUser } from "@auth0/nextjs-auth0/dist/frontend";
+import { Head } from "next/head";
 
 // Component will be a responsive navbar when user is signed in.
 const HAccess = (props) => {
@@ -37,6 +38,13 @@ const HAccess = (props) => {
    
     return (
         <>  
+        
+        <Head>
+            <meta name="apple-mobile-web-app-capable" content = "yes"/>
+            <meta name="apple-mobile-web-app-status-bar-style" content = "default"/>
+            <meta name ="apple-mobile-web-app-title" content = "Prized Listeners"/>
+        </Head>
+        
             <body>
                 <nav className="navbar">
                     <div onClick = {() => router.push("/")}className="brand-title"><em>Prized Listeners</em></div>
