@@ -1,9 +1,18 @@
+/*******************************************************************************
+ * Developer: JT Fleetwood
+ * Module: Basic post component that holds information for a single post.
+ * ****************************************************************************/
+
 import { add_upvote, add_downvote } from '../API Services/posts';
 import { check_user_vote } from '../API Services/users';
 import { check_user_self_vote } from '../API Services/posts';
 import {useRouter} from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 
+/*
+    Below method will parse a given youtube link to translate it to an embed link.
+    Will handle web urls, and mobile generated urls.
+*/
 const parseLink = (link) => {
     let index = link.indexOf("watch?v=");
     
@@ -21,26 +30,35 @@ const parseLink = (link) => {
 }
 
 
+// Component to serve as individual post.
 const Post = (props) => {
 
+    // Used to route to different page.
     const router = useRouter();
+    // Gives use current user information.
     const {user} = useUser();
 
+    // Called when user votes on a particular post.
     const on_upvote = async (post_id) => {
 
         try {
-            if (await check_user_self_vote(user.sub, post_id, props.ALT_API_URL)) {
+            // Check if the user attempts to vote on their own post.
+            if (await check_user_self_vote(user.sub, post_id, props.ALT_API_URL, props.ACCESS_TOKEN)) {
                 alert('You cannot upvote your own post!');
                 return;
             }
 
-            else if (await check_user_vote(user.sub, props.ALT_API_URL)) {
+            // Check if the user has already voted this week.
+            else if (await check_user_vote(user.sub, props.ALT_API_URL, props.ACCESS_TOKEN)) {
                 alert('You already voted this week!');
                 return;
             }
 
+            // Set upvote to particular post and set 'voted' for user status for week.
             alert('Thanks for voting!');
-            await add_upvote(post_id, user.sub, props.ALT_API_URL);
+            await add_upvote(post_id, user.sub, props.ALT_API_URL, props.ACCESS_TOKEN);
+
+            // Redirect to home page.
             router.reload(window.location.index);
         }
 
@@ -52,23 +70,26 @@ const Post = (props) => {
     
     }
 
+    // Called when user attempts to downvote post.
     const on_downvote = async (post_id) => {
 
         try {
 
-
-            if (await check_user_self_vote(user.sub, post_id, props.ALT_API_URL)) {
+            // Checks if user attempts to vote on their own post.
+            if (await check_user_self_vote(user.sub, post_id, props.ALT_API_URL, props.ACCESS_TOKEN)) {
                 alert('You cannot downvote your own post!');
                 return;
             }
 
-            else if (await check_user_vote(user.sub, props.ALT_API_URL)) {
+            // Checks if user has already voted this week.
+            else if (await check_user_vote(user.sub, props.ALT_API_URL, props.ACCESS_TOKEN)) {
                 alert('You already voted this week!');
                 return;
             }
-    
+            
+            // Setting downvote to post and setting user vote status for week.
             alert('Oof! Thanks for voting!');
-            await add_downvote(post_id, user.sub, props.ALT_API_URL);
+            await add_downvote(post_id, user.sub, props.ALT_API_URL, props.ACCESS_TOKEN);
             router.reload(window.location.index);
         }
 
@@ -79,6 +100,7 @@ const Post = (props) => {
         
     }
 
+    // Component
     return (
         <>
         <div className = "post-container">

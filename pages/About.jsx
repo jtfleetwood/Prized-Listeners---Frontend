@@ -1,7 +1,12 @@
+/*******************************************************************************
+ * Developer: JT Fleetwood
+ * Module: About us page.
+ * ****************************************************************************/
+
 import HNAccess from "../components/HNAccess";
 import Footer from "../components/Footer";
 
-
+// Simple about us page. No constraints here as anyone should be able to view.
 const AboutUs = () => {
     return (
         <>

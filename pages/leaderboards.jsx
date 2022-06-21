@@ -1,16 +1,24 @@
+/*******************************************************************************
+ * Developer: JT Fleetwood
+ * Module: Leaderboards page.
+ * ****************************************************************************/
+
 import { get_users } from "../API Services/users"
 import HAccess from "../components/HAccess";
 import UserStanding from "../components/UserStanding";
 import Footer from "../components/Footer";
 import { useUser } from "@auth0/nextjs-auth0";
+import { getAccessToken } from "@auth0/nextjs-auth0";
 
+// Method that takes in array of users and creates a leaderboard object (2D array).
 const create_standings = (users) => {
     var standings = [[]];
     var max = 10000000;
+    // Using current_standing + 1 as rank to be passed into leaderboard component.
     var current_standing = -1;
 
 
-    // We know win_count is coming in descending order, hence use of max...
+    // Organizing users into ranks based off their combined wins and ties.
     for (let i = 0; i < users.length; i++) {
         if ((users[i].app_metadata.win_count + users[i].app_metadata.tie_count) < max) {
             max = users[i].app_metadata.win_count + users[i].app_metadata.tie_count;
@@ -27,12 +35,17 @@ const create_standings = (users) => {
 }
 
 const Leaderboard = ({users}) => {
+
+    // Getting current user information.
     const {user, isLoading} = useUser();
 
+    // Sorting users by win count + tie count.
     users.sort((a, b) => (b.app_metadata.win_count + b.app_metadata.tie_count) - (a.app_metadata.win_count + a.app_metadata.tie_count));
 
+    // Getting standings (2D array)
     const standings = create_standings(users);
 
+    // If user signed in, and page done loading.
     if (user && !isLoading) {
         return (
             <div className = "page-holder">
@@ -45,10 +58,12 @@ const Leaderboard = ({users}) => {
 
     }
 
+    // If user signed in, and page still loading.
     else if (user && isLoading) {
         return <div>Loading!</div>
     }
 
+    // Unauthorized attempt to access page.
     else {
         return <div>You're not authorized to access this page!</div>
     }
@@ -59,8 +74,27 @@ const Leaderboard = ({users}) => {
 
 export default Leaderboard;
 
-export async function getServerSideProps() {
-    const users = await get_users(process.env.API_URL);
+/*
+    Getting API url from env variables, getting user access token to make API calls,
+    and getting current users from backend for leaderboard construction. 
 
-    return {props : {users}}
+    Important: we are injecting the API_URL from environment variables as this is
+    an internally used API only and no one else should have the link. It is 
+    secured via JWT mechanisms, but an extra measure.
+*/
+export async function getServerSideProps(context) {
+
+    try {
+        const response = await getAccessToken(context.req, context.res);
+        
+        const ACCESS_TOKEN = response.accessToken;
+        const users = await get_users(process.env.API_URL, ACCESS_TOKEN);
+
+        return {props : {users}}
+
+    }
+
+    catch (error) {
+        console.log(error);
+    }
 }

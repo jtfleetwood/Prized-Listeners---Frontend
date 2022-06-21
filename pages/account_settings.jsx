@@ -1,11 +1,16 @@
+/*******************************************************************************
+ * Developer: JT Fleetwood
+ * Module: Account settings page.
+ * ****************************************************************************/
+
 import HAccess from "../components/HAccess";
 import { useUser } from "@auth0/nextjs-auth0";
-import { Button } from "react-bootstrap";
 import { useState } from "react";
 import { change_user_display_name, reset_user_password } from "../API Services/users";
 import Footer from "../components/Footer";
+import { getAccessToken } from "@auth0/nextjs-auth0";
 
-
+// Called when user attempts to reset password. Making front-end Auth0 API call.
 const on_password_submit = async (email, auth_url, auth_client_id) => {
 
     try {
@@ -26,13 +31,19 @@ const on_password_submit = async (email, auth_url, auth_client_id) => {
     
 }
 
-const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
+const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL, ACCESS_TOKEN}) => {
+    
+    // Using hooks to get user input.
     const {user, isLoading} = useUser();
     const [display_name, set_display_name] = useState('');
     const [v_display_name, set_v_display_name] = useState('');
 
+    // Called when user attempts to change their display name. 
     const on_name_reset = async (ALT_API_URL, user_id, new_name1, new_name2) => {
+
         try {
+            
+            // Data validation below.
             if (new_name1 !== new_name2) {
                 alert('Your provided display names did not match!');
                 return;
@@ -42,18 +53,20 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
                 alert('Please provide a new display name in the fields!');
                 return;
             }
-    
-    
-            const response = await change_user_display_name(ALT_API_URL, user_id, new_name1);
+            
+            // Making call to backend API which is integrated with Auth0 Management API.
+            const response = await change_user_display_name(ALT_API_URL, user_id, new_name1, ACCESS_TOKEN);
     
             set_display_name('');
             set_v_display_name('');
-    
+            
+            // If name succesfully changed..
             if (response.ok) {
                 alert(`Display name successfully changed to: ${new_name1}! Note: this update may take up to a minute or so.`);
                 return;
             }
-    
+            
+            // If not.
             alert('Oops! An error occurred.. Please try to reset your display name again.');
         }
     
@@ -62,11 +75,12 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
         }
     }
 
-    if (!user) {
+    // If page is loaded, and user has not signed in yet.
+    if (!user && !isLoading) {
         return <div>You are not authorized to access this page!</div>
     }
 
-
+    // If user signed in, and page is not loading.
     else if (user && !isLoading) {
         return (
             <>
@@ -83,7 +97,6 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
                         <span className = "reset-password">Change Password: </span>
                         <button onClick = {() => on_password_submit(user.name, auth_url, auth_client_id)} className = "reset-password-button" variant="dark">Reset Password</button>
                     </div>
-                    
                     <Footer/>
                     
                 </div>
@@ -92,18 +105,36 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL}) => {
 
     }
 
+    // If page has not finished loading yet, and user signed in.
     else {
         return <div>Loading!</div>
     }
     
 }
 
-export async function getServerSideProps() {
-    const auth_url = process.env.AUTH0_ISSUER_BASE_URL;
-    const auth_client_id = process.env.AUTH0_CLIENT_ID;
-    const ALT_API_URL = process.env.API_URL;
+/*
+    Getting API urls from environment variables so auth0 front-end API calls
+    can be made. Also getting user access token.
 
-    return {props : {auth_url, auth_client_id, ALT_API_URL}};
+    NOTE: This access token is generated once everytime a user is logged in.
+*/
+export async function getServerSideProps(context) {
+
+    try {
+        const auth_url = process.env.AUTH0_ISSUER_BASE_URL;
+        const auth_client_id = process.env.AUTH0_CLIENT_ID;
+        const ALT_API_URL = process.env.API_URL;
+
+        const response = await getAccessToken(context.req, context.res);
+        const ACCESS_TOKEN = response.accessToken;
+        
+        return {props : {auth_url, auth_client_id, ALT_API_URL, ACCESS_TOKEN}};
+    }
+
+    catch (error) {
+        console.log(error);
+    }
+
 }
 
 export default AccountSettings;

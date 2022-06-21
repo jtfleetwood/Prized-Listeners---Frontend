@@ -9,4 +9,4 @@ The initial state of this application will be one large user base voting on each
 
 As I continue to develop this project, there will be changes made to enhance the user experience and internal processes as I see fit. As I said earlier, this is my first full-stack project so please understand the turnaround on certain features may not be consistent with what large development teams offer.
 
-Excited to begin the development process, and eager to hear your feedback! If you would like to contribute, feel free to shoot me a DM :)
+Excited to begin the development process, and eager to hear your feedback! If you would like to contribute, feel free to shoot me a DM.

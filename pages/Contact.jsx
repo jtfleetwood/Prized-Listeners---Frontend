@@ -1,6 +1,12 @@
+/*******************************************************************************
+ * Developer: JT Fleetwood
+ * Module: Contact us page.
+ * ****************************************************************************/
+
 import HNAccess from "../components/HNAccess";
 import Footer from "../components/Footer";
 
+// Simple contact page.
 const Contact = () => {
     return (
         <>

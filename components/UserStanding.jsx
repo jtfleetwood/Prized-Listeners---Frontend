@@ -1,4 +1,9 @@
+/*******************************************************************************
+ * Developer: JT Fleetwood
+ * Module: Basic component that maps out rankings array to make a leaderboard.
+ * ****************************************************************************/
 
+// Displays user leaderboards.
 const UserStanding = ({rank, users}) => {
     return (
         <div className = "leaderboard-rank">

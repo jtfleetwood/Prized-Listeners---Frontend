@@ -1,21 +1,27 @@
-import {useUser} from '@auth0/nextjs-auth0';
+/*******************************************************************************
+ * Developer: JT Fleetwood
+ * Module: Home page.
+ * ****************************************************************************/
+
+import {useUser, getAccessToken} from '@auth0/nextjs-auth0';
 import HNAccess from '../components/HNAccess';
 import HAccess from '../components/HAccess';
 import PostTable from '../components/PostTable';
-import {useRouter} from 'next/router';
-import {get_posts} from '../API Services/posts'
+import {get_posts} from '../API Services/posts';
 import { check_new_user } from '../API Services/users';
 import Footer from '../components/Footer';
 
+// Home page
 const Home = (props) => {
+  // Getting current user information.
   const {user, isLoading} = useUser();
-  const router = useRouter();
-
+  
+  // Checking to see if user has signed in for first time, so app metadata can be initialized.
   const on_sign_in = async () => {
-    await check_new_user(user.sub, props.ALT_API_URL);
+    await check_new_user(user.sub, props.ALT_API_URL, props.ACCESS_TOKEN);
   }
 
-
+  // If user not logged in, display external home page.
   if (!user) {
     return(
       <>
@@ -30,10 +36,12 @@ const Home = (props) => {
     );
   }
 
+  // If user logged in, and page loading.
   else if (user && isLoading) {
     return <div>Loading!</div>
   }
 
+  // If user is logged in.
   else {
     on_sign_in();
 
@@ -42,7 +50,7 @@ const Home = (props) => {
         <div className = "page-holder">
           <HAccess/>
           <div className = "posts-display-home"><em>Weekly Entries</em></div>
-          <PostTable ALT_API_URL = {props.ALT_API_URL} posts = {props.table_posts}></PostTable>
+          <PostTable ACCESS_TOKEN = {props.ACCESS_TOKEN} ALT_API_URL = {props.ALT_API_URL} posts = {props.table_posts}></PostTable>
           <Footer/>
         </div>
         
@@ -55,9 +63,33 @@ const Home = (props) => {
 
 export default Home;
 
-export async function getServerSideProps() {
-  const table_posts = await get_posts();
-  const ALT_API_URL = process.env.API_URL;
+/*
+    Getting API url from env variables, getting user access token to make API calls,
+    and getting current posts for week. 
 
-  return {props : {table_posts, ALT_API_URL}};
+    Important: we are injecting the API_URL from environment variables as this is
+    an internally used API only and no one else should have the link. It is 
+    secured via JWT mechanisms, but an extra measure.
+*/
+
+export async function getServerSideProps(context) {
+  
+  try {
+    const response = await getAccessToken(context.req, context.res);
+    
+    const ACCESS_TOKEN = response.accessToken;
+    //const table_posts = await get_posts(ACCESS_TOKEN);
+    const ALT_API_URL = process.env.API_URL;
+
+    const table_posts = await get_posts(ACCESS_TOKEN);
+    
+    return {props : {table_posts, ALT_API_URL, ACCESS_TOKEN}};
+  }
+  // If an error occurs, sending empty array to other component for further handling.
+  catch {
+    const table_posts = []
+    return {props: {table_posts}}
+  }
+
+  
 }

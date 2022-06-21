@@ -1,17 +1,26 @@
+/*******************************************************************************
+ * Developer: JT Fleetwood
+ * Module: Dynamic routing used to display another user's profile to a user.
+ * As you can see we are not displaying another user's email.
+ * ****************************************************************************/
+
 import HAccess from '../../components/HAccess';
 import { useUser } from '@auth0/nextjs-auth0';
-import {get_user_win_count} from '../../API Services/users';
-import { useRouter } from 'next/router';
 import { get_user_by_id } from '../../API Services/users';
 import Footer from '../../components/Footer';
+import { getAccessToken } from '@auth0/nextjs-auth0';
 
 const Profile = (props) => {
-    
 
     const {user, isLoading} = useUser();
 
-    if (user && !isLoading) {
-       
+    // If page is not loading and user has not logged in. Protecting page.
+    if (!user && !isLoading) {
+        return <div>You are not authorized to access this page!</div>
+    }
+
+    // If user is logged in, and page is done loading.
+    else if (user && !isLoading) {
         return (
             <>
                 <head>
@@ -20,7 +29,7 @@ const Profile = (props) => {
                 <div className = "page-holder">
                     <HAccess current_page = "profile" user_id = {user.sub}/>
                     <div className = "profile-info-container">
-                    <img className = "profile-picture" src={props.ext_user.picture}></img>
+                        <img className = "profile-picture" src={props.ext_user.picture}></img>
                         <div className = "profile-info-heading">Display Name:
                          <span className = "profile-info-content">{props.ext_user.nickname}</span>
                         </div>
@@ -32,25 +41,41 @@ const Profile = (props) => {
                         </div>
                     </div>
                     <Footer/>
-                    
                 </div>
             </>
         )
 
     }
 
+    // If page has not finished loading yet.
     else {
         return <div>Loading!</div>
     }
         
 }
 
+/*
+    Getting API url from env variables, getting user access token to make API calls,
+    and getting current user object from backend. 
+
+    Important: we are injecting the API_URL from environment variables as this is
+    an internally used API only and no one else should have the link. It is 
+    secured via JWT mechanisms, but an extra measure.
+*/
 export async function getServerSideProps(context) {
-    // Actual need of API URL is called in browser-side code, thus not available as process.env var. Also not able to config with dotenv pkg due to pkg not being available on server side.
-    // See cannot resolve: fs module w/ NextJS for more info... 
-    const ALT_API_URL = process.env.API_URL;
-    const ext_user = await get_user_by_id(process.env.API_URL, context.params.user_id);
-    return {props : {ALT_API_URL, ext_user}};
+
+    try {
+        const ALT_API_URL = process.env.API_URL;
+        const response = await getAccessToken(context.req, context.res);
+        const ACCESS_TOKEN = response.accessToken;
+        const ext_user = await get_user_by_id(process.env.API_URL, context.params.user_id, ACCESS_TOKEN);
+        return {props : {ALT_API_URL, ext_user}};
+
+    }
+
+    catch (error) {
+        console.log(error);
+    }
 }
 
 

@@ -1,3 +1,9 @@
+/*******************************************************************************
+ * Developer: JT Fleetwood
+ * Module: Serves as a DTO that will ensure the integrity of new posts sent in the
+ * body of API requests.
+ * ****************************************************************************/
+
 export class post {
     constructor(user_id, title, upvotes, yt_url, primary_artist, contest_week, is_winner) {
         this.user_id = user_id;
