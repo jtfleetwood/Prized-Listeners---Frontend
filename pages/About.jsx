@@ -5,9 +5,43 @@
 
 import HNAccess from "../components/HNAccess";
 import Footer from "../components/Footer";
+import { useEffect, useState } from "react";
 
 // Simple about us page. No constraints here as anyone should be able to view.
 const AboutUs = () => {
+
+    const [loading, setLoading] = useState(false);
+
+    // Smooth page loading animation.
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 250);
+    }, []);
+
+    // Check if page loading.
+    if (loading) {
+
+        return (
+            <>
+                <div class="center">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+            </>
+        )
+        
+    }
+
     return (
         <>
             <div className = "page-holder">

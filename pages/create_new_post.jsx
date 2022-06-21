@@ -13,6 +13,7 @@ import { create_post, find_post_count_by_user } from "../API Services/posts";
 import { get_current_week } from "../API Services/maintenance";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const CreatePost = ({ALT_API_URL, ACCESS_TOKEN}) => {
 
@@ -20,8 +21,17 @@ const CreatePost = ({ALT_API_URL, ACCESS_TOKEN}) => {
     const [title, setTitle] = useState('');
     const [artist, setArtist] = useState('');
     const [link, setLink] = useState('');
-    const {user, isLoading} = useUser();
+    const {user} = useUser();
+    const [loading, setLoading] = useState(false);
     const router = useRouter();
+
+    // Smooth page loading animation.
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 250)
+    }, []);
 
     // Called when user submits new post.
     const onSubmission = async (e) => {
@@ -63,13 +73,28 @@ const CreatePost = ({ALT_API_URL, ACCESS_TOKEN}) => {
     
     }
 
-    // If user not signed in, and page has loaded.
-    if (!user && !isLoading) {
-        return <div>You are not authorized to access this page!</div>
+    // If page loading.
+    if (loading) {
+        return (
+            <>
+                <div class="center">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+            </>
+        )
     }
 
     // If user is signed in, and page has loaded.
-    else if (user && !isLoading) {
+    else if (user && !loading) {
         return (
         
             <>
@@ -105,7 +130,7 @@ const CreatePost = ({ALT_API_URL, ACCESS_TOKEN}) => {
 
     // If user is signed in, but page not done loading.
     else {
-        return <div>Loading!</div>
+        return <div>You are not authorized to view this page!</div>
     }
 
 

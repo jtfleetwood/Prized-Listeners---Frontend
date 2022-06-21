@@ -10,19 +10,50 @@ import PostTable from '../components/PostTable';
 import {get_posts} from '../API Services/posts';
 import { check_new_user } from '../API Services/users';
 import Footer from '../components/Footer';
+import { useState, useEffect } from 'react';
 
 // Home page
 const Home = (props) => {
   // Getting current user information.
   const {user, isLoading} = useUser();
+  const [loading, setLoading] = useState(false);
   
   // Checking to see if user has signed in for first time, so app metadata can be initialized.
   const on_sign_in = async () => {
     await check_new_user(user.sub, props.ALT_API_URL, props.ACCESS_TOKEN);
   }
 
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+        setLoading(false);
+    }, 250);
+  }, []);
+
+  // Check if page loading.
+  if (loading) {
+
+      return (
+          <>
+              <div class="center">
+                  <div class="wave"></div>
+                  <div class="wave"></div>
+                  <div class="wave"></div>
+                  <div class="wave"></div>
+                  <div class="wave"></div>
+                  <div class="wave"></div>
+                  <div class="wave"></div>
+                  <div class="wave"></div>
+                  <div class="wave"></div>
+                  <div class="wave"></div>
+              </div>
+          </>
+      )
+      
+  }
+
   // If user not logged in, display external home page.
-  if (!user) {
+  else if (!user) {
     return(
       <>
         <div className = "page-holder">
@@ -34,11 +65,6 @@ const Home = (props) => {
         </div>
       </>
     );
-  }
-
-  // If user logged in, and page loading.
-  else if (user && isLoading) {
-    return <div>Loading!</div>
   }
 
   // If user is logged in.

@@ -9,18 +9,46 @@ import { useUser } from '@auth0/nextjs-auth0';
 import { get_user_by_id } from '../../API Services/users';
 import Footer from '../../components/Footer';
 import { getAccessToken } from '@auth0/nextjs-auth0';
+import {useEffect, useState} from 'react';
 
 const Profile = (props) => {
 
-    const {user, isLoading} = useUser();
+    const {user} = useUser();
 
-    // If page is not loading and user has not logged in. Protecting page.
-    if (!user && !isLoading) {
-        return <div>You are not authorized to access this page!</div>
+    const [loading, setLoading] = useState(false);
+
+    // Smooth page loading animation.
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 250);
+    }, []);
+
+    // Check if page loading.
+    if (loading) {
+
+        return (
+            <>
+                <div class="center">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+            </>
+        )
+        
     }
 
     // If user is logged in, and page is done loading.
-    else if (user && !isLoading) {
+    else if (user) {
         return (
             <>
                 <head>
@@ -47,9 +75,9 @@ const Profile = (props) => {
 
     }
 
-    // If page has not finished loading yet.
+    // Invalid attempt to access page.
     else {
-        return <div>Loading!</div>
+        return <div>You are not authorized to view this page!</div>
     }
         
 }

@@ -5,9 +5,43 @@
 
 import HNAccess from "../components/HNAccess";
 import Footer from "../components/Footer";
+import { useState, useEffect } from "react";
 
 // Simple contact page.
 const Contact = () => {
+
+    const [loading, setLoading] = useState(false);
+
+    // Smooth page loading animation.
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 250);
+    }, []);
+
+    // Check if page loading.
+    if (loading) {
+
+        return (
+            <>
+                <div class="center">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+            </>
+        )
+        
+    }
+    
     return (
         <>
             <div className = "page-holder">

@@ -5,7 +5,7 @@
 
 import HAccess from "../components/HAccess";
 import { useUser } from "@auth0/nextjs-auth0";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { change_user_display_name, reset_user_password } from "../API Services/users";
 import Footer from "../components/Footer";
 import { getAccessToken } from "@auth0/nextjs-auth0";
@@ -34,7 +34,7 @@ const on_password_submit = async (email, auth_url, auth_client_id) => {
 const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL, ACCESS_TOKEN}) => {
     
     // Using hooks to get user input.
-    const {user, isLoading} = useUser();
+    const {user} = useUser();
     const [display_name, set_display_name] = useState('');
     const [v_display_name, set_v_display_name] = useState('');
 
@@ -75,13 +75,41 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL, ACCESS_TOKEN}) 
         }
     }
 
-    // If page is loaded, and user has not signed in yet.
-    if (!user && !isLoading) {
-        return <div>You are not authorized to access this page!</div>
+    const [loading, setLoading] = useState(false);
+
+    // Smooth page loading animation.
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 250);
+    }, []);
+
+    // Check if page loading.
+    if (loading) {
+
+        return (
+            <>
+                <div class="center">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+            </>
+        )
+        
     }
 
-    // If user signed in, and page is not loading.
-    else if (user && !isLoading) {
+
+    // If user signed in, and page done loading.
+    else if (user) {
         return (
             <>
                 <head>
@@ -105,9 +133,9 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL, ACCESS_TOKEN}) 
 
     }
 
-    // If page has not finished loading yet, and user signed in.
+    // Invalid attempt to access page.
     else {
-        return <div>Loading!</div>
+        return <div>You are not authorized to view this page!</div>
     }
     
 }

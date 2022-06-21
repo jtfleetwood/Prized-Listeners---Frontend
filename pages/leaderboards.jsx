@@ -9,6 +9,7 @@ import UserStanding from "../components/UserStanding";
 import Footer from "../components/Footer";
 import { useUser } from "@auth0/nextjs-auth0";
 import { getAccessToken } from "@auth0/nextjs-auth0";
+import { useState, useEffect } from "react";
 
 // Method that takes in array of users and creates a leaderboard object (2D array).
 const create_standings = (users) => {
@@ -37,16 +38,43 @@ const create_standings = (users) => {
 const Leaderboard = ({users}) => {
 
     // Getting current user information.
-    const {user, isLoading} = useUser();
+    const {user} = useUser();
+    const [loading, setLoading] = useState(false);
+    
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 250)
+    }, []);
 
-    // Sorting users by win count + tie count.
-    users.sort((a, b) => (b.app_metadata.win_count + b.app_metadata.tie_count) - (a.app_metadata.win_count + a.app_metadata.tie_count));
+    if (loading) {
+        return (
+            <>
+                <div class="center">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+            </>
+        )
+    }
 
-    // Getting standings (2D array)
-    const standings = create_standings(users);
-
+    
     // If user signed in, and page done loading.
-    if (user && !isLoading) {
+    else if (user) {
+        // Sorting users by win count + tie count.
+        users.sort((a, b) => (b.app_metadata.win_count + b.app_metadata.tie_count) - (a.app_metadata.win_count + a.app_metadata.tie_count));
+
+        // Getting standings (2D array)
+        const standings = create_standings(users);
         return (
             <div className = "page-holder">
                 <HAccess/>
@@ -56,11 +84,6 @@ const Leaderboard = ({users}) => {
             </div>
         )
 
-    }
-
-    // If user signed in, and page still loading.
-    else if (user && isLoading) {
-        return <div>Loading!</div>
     }
 
     // Unauthorized attempt to access page.
