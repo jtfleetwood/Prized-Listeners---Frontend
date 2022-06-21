@@ -15,7 +15,7 @@ import { useState, useEffect } from 'react';
 // Home page
 const Home = (props) => {
   // Getting current user information.
-  const {user, isLoading} = useUser();
+  const {user} = useUser();
   const [loading, setLoading] = useState(false);
   
   // Checking to see if user has signed in for first time, so app metadata can be initialized.

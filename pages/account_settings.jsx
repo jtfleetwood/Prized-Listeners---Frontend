@@ -109,7 +109,7 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL, ACCESS_TOKEN}) 
 
 
     // If user signed in, and page done loading.
-    else if (user) {
+    else if (user && !loading) {
         return (
             <>
                 <head>
