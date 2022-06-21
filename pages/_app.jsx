@@ -24,6 +24,7 @@ export default function App({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-status-bar-style" content = "default"/>
         <meta name ="apple-mobile-web-app-title" content = "Prized Listeners"/>
         <title>Prized Listeners</title>
+        <link rel = "manifest" href="manifest.json"></link>
       </Head>
       <UserProvider>
           <Component {...pageProps} />
