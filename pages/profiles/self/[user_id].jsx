@@ -46,7 +46,7 @@ const SelfProfile = (props) => {
     }
 
     // If page is done loading and user is signed in.
-    else if (user) {
+    else {
        
         return (
             <>
@@ -75,11 +75,6 @@ const SelfProfile = (props) => {
             </>
         )
 
-    }
-
-    // Invalid attempt to load page.
-    else {
-        return <div>You are not authorized to view this page!</div>
     }
         
 }

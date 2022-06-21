@@ -69,7 +69,7 @@ const Leaderboard = ({users}) => {
 
     
     // If user signed in, and page done loading.
-    else if (user) {
+    else {
         // Sorting users by win count + tie count.
         users.sort((a, b) => (b.app_metadata.win_count + b.app_metadata.tie_count) - (a.app_metadata.win_count + a.app_metadata.tie_count));
 
@@ -84,11 +84,6 @@ const Leaderboard = ({users}) => {
             </div>
         )
 
-    }
-
-    // Unauthorized attempt to access page.
-    else {
-        return <div>You're not authorized to access this page!</div>
     }
 
     

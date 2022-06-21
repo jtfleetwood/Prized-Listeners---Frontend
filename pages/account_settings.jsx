@@ -109,7 +109,7 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL, ACCESS_TOKEN}) 
 
 
     // If user signed in, and page done loading.
-    else if (user && !loading) {
+    else {
         return (
             <>
                 <head>
@@ -133,10 +133,6 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL, ACCESS_TOKEN}) 
 
     }
 
-    // Invalid attempt to access page.
-    else {
-        return <div>You are not authorized to view this page!</div>
-    }
     
 }
 

@@ -48,7 +48,7 @@ const Profile = (props) => {
     }
 
     // If user is logged in, and page is done loading.
-    else if (user) {
+    else {
         return (
             <>
                 <head>
@@ -75,10 +75,6 @@ const Profile = (props) => {
 
     }
 
-    // Invalid attempt to access page.
-    else {
-        return <div>You are not authorized to view this page!</div>
-    }
         
 }
 

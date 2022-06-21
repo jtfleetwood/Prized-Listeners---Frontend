@@ -124,7 +124,7 @@ const CreatePost = ({ALT_API_URL, ACCESS_TOKEN}) => {
     }
 
     // If user is signed in, and page has loaded.
-    else if (user && !loading) {
+    else {
         return (
         
             <>
@@ -156,11 +156,6 @@ const CreatePost = ({ALT_API_URL, ACCESS_TOKEN}) => {
             </>
         );
 
-    }
-
-    // If user is signed in, but page not done loading.
-    else {
-        return <div>You are not authorized to view this page!</div>
     }
 
 
