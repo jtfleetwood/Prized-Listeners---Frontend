@@ -6,6 +6,7 @@
 import HNAccess from "../components/HNAccess";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
+import { Head } from "next/head";
 
 // Simple about us page. No constraints here as anyone should be able to view.
 const AboutUs = () => {
@@ -44,6 +45,11 @@ const AboutUs = () => {
 
     return (
         <>
+             <Head>
+                <meta name="apple-mobile-web-app-capable" content = "yes"/>
+                <meta name="apple-mobile-web-app-status-bar-style" content = "default"/>
+                <meta name ="apple-mobile-web-app-title" content = "Prized Listeners"/>
+            </Head>
             <div className = "page-holder">
                 <HNAccess/>
                 <div className = "about-header">OUR MISSION</div>
