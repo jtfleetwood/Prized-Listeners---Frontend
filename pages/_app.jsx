@@ -20,6 +20,9 @@ export default function App({ Component, pageProps }) {
         <meta name="application-name" content = "Prized Listeners"/>
         <meta name="description" content = "We embrace your love for music, and friendly competition!"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="apple-mobile-web-app-capable" content = "yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content = "default"/>
+        <meta name ="apple-mobile-web-app-title" content = "Prized Listeners"/>
         <title>Prized Listeners</title>
       </Head>
       <UserProvider>
