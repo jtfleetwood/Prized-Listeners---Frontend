@@ -104,5 +104,7 @@ export async function getServerSideProps(context) {
     }
 }
 
+// Securing web page.
 const ProtectedProfile = withPageAuthRequired(Profile);
 export default ProtectedProfile;
+

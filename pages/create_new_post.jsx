@@ -184,4 +184,6 @@ export async function getServerSideProps(context) {
     
 }
 
+// Securing web page.
 const ProtectedCreatePost = withPageAuthRequired(CreatePost);
+export default ProtectedCreatePost;

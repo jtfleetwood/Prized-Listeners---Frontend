@@ -163,6 +163,6 @@ export async function getServerSideProps(context) {
 
 }
 
-
+// Securing web page.
 const ProtectedAccountSettings = withPageAuthRequired(AccountSettings);
 export default ProtectedAccountSettings;

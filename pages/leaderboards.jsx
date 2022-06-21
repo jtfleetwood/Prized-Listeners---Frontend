@@ -91,6 +91,7 @@ const Leaderboard = ({ users }) => {
 
 }
 
+// Securing web page.
 const ProtectedLeaderboard = withPageAuthRequired(Leaderboard);
 export default ProtectedLeaderboard;
 
