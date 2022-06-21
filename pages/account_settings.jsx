@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { change_user_display_name, reset_user_password } from "../API Services/users";
 import Footer from "../components/Footer";
 import { getAccessToken } from "@auth0/nextjs-auth0";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 // Called when user attempts to reset password. Making front-end Auth0 API call.
 const on_password_submit = async (email, auth_url, auth_client_id) => {
@@ -34,7 +35,7 @@ const on_password_submit = async (email, auth_url, auth_client_id) => {
 const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL, ACCESS_TOKEN}) => {
     
     // Using hooks to get user input.
-    const {user} = useUser();
+    const {user, isLoading} = useUser();
     const [display_name, set_display_name] = useState('');
     const [v_display_name, set_v_display_name] = useState('');
 
@@ -86,7 +87,7 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL, ACCESS_TOKEN}) 
     }, []);
 
     // Check if page loading.
-    if (loading) {
+    if (loading || isLoading || !user) {
 
         return (
             <>
@@ -157,8 +158,11 @@ export async function getServerSideProps(context) {
 
     catch (error) {
         console.log(error);
+        return {props:{}};
     }
 
 }
 
-export default AccountSettings;
+
+const ProtectedAccountSettings = withPageAuthRequired(AccountSettings);
+export default ProtectedAccountSettings;

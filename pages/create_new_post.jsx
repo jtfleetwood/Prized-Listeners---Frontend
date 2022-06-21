@@ -14,6 +14,7 @@ import { get_current_week } from "../API Services/maintenance";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 /*
     Below method will parse a given youtube link to translate it to an embed link.
@@ -41,7 +42,7 @@ const CreatePost = ({ALT_API_URL, ACCESS_TOKEN}) => {
     const [title, setTitle] = useState('');
     const [artist, setArtist] = useState('');
     const [link, setLink] = useState('');
-    const {user} = useUser();
+    const {user, isLoading} = useUser();
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
@@ -104,7 +105,7 @@ const CreatePost = ({ALT_API_URL, ACCESS_TOKEN}) => {
     }
 
     // If page loading.
-    if (loading) {
+    if (loading || isLoading || !user) {
         return (
             <>
                 <div class="center">
@@ -163,8 +164,6 @@ const CreatePost = ({ALT_API_URL, ACCESS_TOKEN}) => {
     
 }
 
-export default CreatePost;
-
 export async function getServerSideProps(context) {
     // Actual need of API URL is called in browser-side code, thus not available as process.env var. Also not able to config with dotenv pkg due to pkg not being available on server side.
     // See cannot resolve: fs module w/ NextJS for more info... 
@@ -180,6 +179,9 @@ export async function getServerSideProps(context) {
 
     catch (error) {
         console.log(error);
+        return {props : {}};
     }
     
 }
+
+const ProtectedCreatePost = withPageAuthRequired(CreatePost);

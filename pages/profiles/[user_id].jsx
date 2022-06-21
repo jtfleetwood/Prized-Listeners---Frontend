@@ -10,10 +10,11 @@ import { get_user_by_id } from '../../API Services/users';
 import Footer from '../../components/Footer';
 import { getAccessToken } from '@auth0/nextjs-auth0';
 import {useEffect, useState} from 'react';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 const Profile = (props) => {
 
-    const {user} = useUser();
+    const {user, isLoading} = useUser();
 
     const [loading, setLoading] = useState(false);
 
@@ -26,7 +27,7 @@ const Profile = (props) => {
     }, []);
 
     // Check if page loading.
-    if (loading) {
+    if (loading || isLoading || !user) {
 
         return (
             <>
@@ -99,8 +100,9 @@ export async function getServerSideProps(context) {
 
     catch (error) {
         console.log(error);
+        return {props : {}};
     }
 }
 
-
-export default Profile;
+const ProtectedProfile = withPageAuthRequired(Profile);
+export default ProtectedProfile;

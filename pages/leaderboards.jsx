@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import { useUser } from "@auth0/nextjs-auth0";
 import { getAccessToken } from "@auth0/nextjs-auth0";
 import { useState, useEffect } from "react";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 // Method that takes in array of users and creates a leaderboard object (2D array).
 const create_standings = (users) => {
@@ -35,10 +36,10 @@ const create_standings = (users) => {
     return standings;
 }
 
-const Leaderboard = ({users}) => {
+const Leaderboard = ({ users }) => {
 
     // Getting current user information.
-    const {user} = useUser();
+    const {user, isLoading} = useUser();
     const [loading, setLoading] = useState(false);
     
     useEffect(() => {
@@ -48,7 +49,7 @@ const Leaderboard = ({users}) => {
         }, 250)
     }, []);
 
-    if (loading) {
+    if (loading || isLoading || !user) {
         return (
             <>
                 <div class="center">
@@ -90,7 +91,8 @@ const Leaderboard = ({users}) => {
 
 }
 
-export default Leaderboard;
+const ProtectedLeaderboard = withPageAuthRequired(Leaderboard);
+export default ProtectedLeaderboard;
 
 /*
     Getting API url from env variables, getting user access token to make API calls,
@@ -114,5 +116,6 @@ export async function getServerSideProps(context) {
 
     catch (error) {
         console.log(error);
+        return {props:{}};
     }
 }
