@@ -9,26 +9,6 @@ import { check_user_self_vote } from '../API Services/posts';
 import {useRouter} from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 
-/*
-    Below method will parse a given youtube link to translate it to an embed link.
-    Will handle web urls, and mobile generated urls.
-*/
-const parseLink = (link) => {
-    let index = link.indexOf("watch?v=");
-    
-    if (index > -1) {
-        return link.slice(index + 8);
-    }
-
-    // Check for mobile link..
-    index = link.indexOf("youtu.be/");
-
-    if (index > -1) {
-        return link.slice(index+9);
-    }
-    
-}
-
 
 // Component to serve as individual post.
 const Post = (props) => {
@@ -104,7 +84,7 @@ const Post = (props) => {
     return (
         <>
         <div className = "post-container">
-          <iframe className = "yt-link" src ={"https://www.youtube.com/embed/"+parseLink(props.yt_url)} allowFullScreen></iframe>
+          <iframe className = "yt-link" src ={props.yt_url} allowFullScreen></iframe>
           <div className = "song-box">
             <span className = "song-title">{props.title}</span>
             <span className = "song-artist">{props.primary_artist}</span>

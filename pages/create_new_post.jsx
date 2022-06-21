@@ -15,6 +15,26 @@ import Footer from "../components/Footer";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
+/*
+    Below method will parse a given youtube link to translate it to an embed link.
+    Will handle web urls, and mobile generated urls.
+*/
+const parseLink = (link) => {
+    let index = link.indexOf("watch?v=");
+    
+    if (index > -1) {
+        return link.slice(index + 8);
+    }
+
+    // Check for mobile link..
+    index = link.indexOf("youtu.be/");
+
+    if (index > -1) {
+        return link.slice(index+9);
+    }
+    
+}
+
 const CreatePost = ({ALT_API_URL, ACCESS_TOKEN}) => {
 
     // Using hooks to handle user input.
@@ -55,9 +75,19 @@ const CreatePost = ({ALT_API_URL, ACCESS_TOKEN}) => {
 
             try {
                 
-                const response = await create_post(new post(user.sub, title, 0, link, artist, current_week, false), ALT_API_URL, ACCESS_TOKEN);
-                alert('Thanks for the submission! We look forward to seeing you on the leaderboards :)');
+                // Converting provided YT link to embed link.
+                const converted_link = "https://www.youtube.com/embed/"+parseLink(link);
+                const response = await create_post(new post(user.sub, title, 0, converted_link, artist, current_week, false), ALT_API_URL, ACCESS_TOKEN);
 
+                // If resource successfully, added notify user.
+                if (response.status === 201) {
+                    alert('Thanks for the submission! We look forward to seeing you on the leaderboards :)');
+                }
+                
+                // If not, cause was due to constraint error with DB - thus reused song provided.
+                else {
+                    alert('That song has already been posted. Sorry, pick another one!');
+                }
             }
     
             catch (error) {
