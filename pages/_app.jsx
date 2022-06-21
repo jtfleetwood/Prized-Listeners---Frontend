@@ -25,6 +25,7 @@ export default function App({ Component, pageProps }) {
         <meta name ="apple-mobile-web-app-title" content = "Prized Listeners"/>
         <title>Prized Listeners</title>
         <link rel = "manifest" href="manifest.json"></link>
+        <link rel = "apple-touch-icon" href = "music.png"/>
       </Head>
       <UserProvider>
           <Component {...pageProps} />
