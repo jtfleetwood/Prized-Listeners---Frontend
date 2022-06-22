@@ -42,6 +42,8 @@ const HAccess = (props) => {
                     <div onClick = {() => router.push("/")}className="brand-title"><em>Prized Listeners</em></div>
                     <a onClick = {() => {
                         const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+                        const button = document.getElementsByClassName('toggle-button')[0];
+                        button.classList.toggle('active');
                         navbarLinks.classList.toggle('active')
                     }}href="#" className="toggle-button">
                         <span className="bar"></span>

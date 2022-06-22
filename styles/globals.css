@@ -572,6 +572,7 @@ p code {
   width: 100%;
   background-color: white;
   border-radius: .5vw;
+  transition:.6s;
   margin-bottom: .40vh;
 }
 
@@ -786,6 +787,20 @@ p code {
     margin-bottom: .05vh;
   }
 
+  .toggle-button.active span:nth-child(1) {
+    transform: translate(0px, 8px) rotate(-140deg);
+    transition:.6s;
+  }
+
+  .toggle-button.active span:nth-child(2) {
+    display:none;
+  }
+
+  .toggle-button.active span:nth-child(3) {
+    transform: translate(0px, -10px) rotate(140deg);
+    transition:.6s;
+  }
+
   .self-image {
     display:block;
     width:20%;
@@ -991,9 +1006,6 @@ p code {
     margin-left:1%;
   }
   
-
-  
-
   .navbar-links {
       display: none;
       width: 100%;
