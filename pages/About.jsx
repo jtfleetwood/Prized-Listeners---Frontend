@@ -6,7 +6,6 @@
 import HNAccess from "../components/HNAccess";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
-import Head  from "next/head";
 
 // Simple about us page. No constraints here as anyone should be able to view.
 const AboutUs = () => {

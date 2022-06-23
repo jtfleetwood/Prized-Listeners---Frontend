@@ -117,7 +117,7 @@ p code {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding-bottom:12%;
+  padding-bottom:4vw;
   overflow-x:hidden;
 }
 
@@ -128,7 +128,7 @@ p code {
   background-color:black;
   display:block;
   color:white;
-  height:8%;
+  height:4vw;
   padding:.8%;
 }
 
