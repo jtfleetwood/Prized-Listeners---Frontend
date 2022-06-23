@@ -84,8 +84,11 @@ const AboutUs = () => {
                 </div>
                 <br/>
                 <br/>
+                <div className = "footer-separate"></div>
                 <Footer/>
             </div>
+           
+            
         
         </>
     )

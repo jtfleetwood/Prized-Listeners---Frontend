@@ -152,6 +152,7 @@ const CreatePost = ({ALT_API_URL, ACCESS_TOKEN}) => {
                         </Form>
                         <Button style = {{fontWeight:'bold'}} onClick = {onSubmission} variant = "info" className = "post-form-button" >Create Entry</Button>
                     </div>
+                    <div className = "footer-separate"></div>
                     <Footer/>
                 </div>
             </>

@@ -61,6 +61,7 @@ const Home = (props) => {
           <div className= "welcome-message">LISTEN.</div>
           <div className="welcome-message" style = {{color:"white"}}>SHARE.</div>
           <div className="welcome-message">COMPETE.</div>
+          <div className = "footer-separate"></div>
           <Footer/>
         </div>
       </>
@@ -77,6 +78,7 @@ const Home = (props) => {
           <HAccess/>
           <div className = "posts-display-home"><em>Weekly Entries</em></div>
           <PostTable ACCESS_TOKEN = {props.ACCESS_TOKEN} ALT_API_URL = {props.ALT_API_URL} posts = {props.table_posts}></PostTable>
+          <div className = "footer-separate"></div>
           <Footer/>
         </div>
         

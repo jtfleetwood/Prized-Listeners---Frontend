@@ -111,15 +111,19 @@ p code {
 
 .page-holder {
   width:100%;
-  min-height:100vh;
+  min-height:100%;
   background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
   position:absolute;
   background-repeat: no-repeat;
+  margin-bottom:4vw;
   background-position: center;
   background-size: cover;
-  padding-bottom:10vw;
   overflow-y:hidden;
   overflow-x:hidden;
+}
+
+.footer-separate {
+  margin-bottom:15%;
 }
 
 .footer-container {
@@ -806,16 +810,32 @@ p code {
     font-weight:bold;
   }
 
+  .page-holder {
+    width:100%;
+    min-height:100%;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    position:absolute;
+    background-repeat: no-repeat;
+    margin-bottom:-11vw;
+    background-position: center;
+    background-size: cover;
+    overflow-y:hidden;
+    overflow-x:hidden;
+  }
+  
   .footer-container {
     width:100%;
+    position:absolute;
+    bottom:0;
     background-color:black;
     display:block;
     color:white;
-    margin-top:30%;
-    bottom:0;
-    position:fixed;
-    height:5%;
+    height:11vw;
     padding:2.5%;
+  }
+
+  .footer-separate {
+    margin-bottom:25%;
   }
   
   .footer-container span{

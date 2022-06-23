@@ -59,6 +59,7 @@ const Contact = () => {
                 </div>
                 <br/>
                 <br/>
+                <div className = "footer-separate"></div>
                 <Footer/>
             </div>
         </>

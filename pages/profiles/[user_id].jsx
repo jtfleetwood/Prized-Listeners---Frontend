@@ -69,6 +69,7 @@ const Profile = (props) => {
                          <span className = "profile-info-content">{props.ext_user.app_metadata.win_count}</span>
                         </div>
                     </div>
+                    <div className = "footer-separate"></div>
                     <Footer/>
                 </div>
             </>

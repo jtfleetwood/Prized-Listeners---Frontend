@@ -126,6 +126,7 @@ const AccountSettings = ({auth_url, auth_client_id, ALT_API_URL, ACCESS_TOKEN}) 
                         <span className = "reset-password">Change Password: </span>
                         <button onClick = {() => on_password_submit(user.name, auth_url, auth_client_id)} className = "reset-password-button" variant="dark">Reset Password</button>
                     </div>
+                    <div className = "footer-separate"></div>
                     <Footer/>
                     
                 </div>
