@@ -55,7 +55,6 @@ const Contact = () => {
                     <p>If for any reason you need to reach out to our staff, please use the above email.
                         <br/>
                         <br/>
-                        ***WE ARE IN NEED OF MODERATORS!***
                     </p>
                 </div>
                 <br/>

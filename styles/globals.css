@@ -110,14 +110,15 @@ p code {
 }
 
 .page-holder {
-  width: 100%;
-  min-height:100%;
+  width:100%;
+  min-height:100vh;
   background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
   position:absolute;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding-bottom:4vw;
+  padding-bottom:10vw;
+  overflow-y:hidden;
   overflow-x:hidden;
 }
 
